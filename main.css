@@ -1,0 +1,67 @@
+html, pre, body, code
+{
+  margin: 0px;
+  padding: 0px;
+}
+
+code
+{
+  word-wrap:break-word;
+  font-size: 11px;
+}
+
+.card
+{
+  width: 500px;
+}
+
+pre
+{
+  border: solid 1px #ddd;
+}
+
+h2
+{
+  font-family: 'Source Sans Pro', sans-serif;
+  background: #222222;
+  color: #fefefe;
+  margin: 0;
+  padding: 8px;
+  font-size: 14px;
+}
+
+p
+{
+  font-family: 'Source Sans Pro', sans-serif;
+  background: #ddd;
+  color: #555;
+  margin: 0;
+  padding: 8px;
+  font-size: 12px;
+}
+
+.badge-1,
+.badge-2,
+.badge-3,
+.badge-4,
+.badge-5,
+.badge-6,
+.badge-7,
+.badge-8
+{
+  margin: 4px;
+  width: 10px;
+  height: 10px;
+  float: right;
+  display: block;
+  border-radius: 10px;
+}
+
+.badge-1 { background: #23ae59; }
+.badge-2 { background: #508cbf; }
+.badge-3 { background: #ff4954; }
+.badge-4 { background: #ff6240; }
+.badge-5 { background: #ffcd00; }
+.badge-6 { background: #7759BF; }
+.badge-7 { background: #15AEAC; }
+.badge-8 { background: #FFA43D; }

@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Code cards</title>
+  <meta name="description" content="Code cards">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/tomorrow.min.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <!-- DATA -->
+
+  <code id="snippets" style="display: none;">
+  @(xml)(1,2)-------------------------------------------------------------------------
+  Ressources de thème
+  ------------------------------------------------------------------------------------
+  Créer des resources dynamiques en fonction du thème selectionné. Attention de bien utiliser l'extension de balisage {ThemeResource }.
+  -----------------------------------------------------------------------------------------------
+  <ResourceDictionary>
+    <ResourceDictionary.ThemeDictionaries>
+      <ResourceDictionary x:Key="Light">
+        <SolidColorBrush x:Key="myBrush" Color="{StaticResource SystemBaseHighColor}"/>
+      </ResourceDictionary>
+      <ResourceDictionary x:Key="Dark">
+        <SolidColorBrush x:Key="myBrush" Color="{StaticResource SystemBaseHighColor}"/>
+      </ResourceDictionary>
+      <ResourceDictionary x:Key="HighContrast">
+        <SolidColorBrush x:Key="myBrush" Color="{ThemeResource SystemColorButtonFaceColor}"/>
+      </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+  </ResourceDictionary>
+  @(cs)(3,2)-------------------------------------------------------------------------------------------
+  Dossiers de l application
+  -----------------------------------------------------------------------------------------------
+  Récupérer les dossiers locaux de l'application pour y stocker ou charger des fichiers.
+  -----------------------------------------------------------------------------------------------
+  var folder = ApplicationData.Current.LocalFolder;
+  var settings = ApplicationData.Current.LocalSettings;
+  </code>
+
+  <!-- LAYOUT -->
+
+  <div id="content"></div>
+
+  <!-- SCRIPTS -->
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/minigrid/1.6.5/minigrid.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/cs.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
