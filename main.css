@@ -15,9 +15,23 @@ code
   width: 500px;
 }
 
+@media print
+{
+    .card{
+        page-break-inside: avoid;
+    }
+}
+
+code.snippet
+{
+  display: none;
+}
+
 pre
 {
-  border: solid 1px #ddd;
+  border-right: dashed 1px #ddd;
+  border-left: dashed 1px #ddd;
+  border-bottom: dashed 1px #ddd;
 }
 
 h2
@@ -40,28 +54,50 @@ p
   font-size: 12px;
 }
 
-.badge-1,
-.badge-2,
-.badge-3,
-.badge-4,
-.badge-5,
-.badge-6,
-.badge-7,
-.badge-8
+/* Badges - Tags */
+
+.badge-1, .tag-1 { background: #23ae59; }
+.badge-2, .tag-2 { background: #508cbf; }
+.badge-3, .tag-3 { background: #ff4954; }
+.badge-4, .tag-4 { background: #ff6240; }
+.badge-5, .tag-5 { background: #ffcd00; }
+.badge-6, .tag-6 { background: #7759BF; }
+.badge-7, .tag-7 { background: #15AEAC; }
+.badge-8, .tag-8 { background: #FFA43D; }
+
+#tags
+{
+margin-top: 10px;
+margin-left: 10px;
+margin-right: 10px;
+margin-bottom: 0px;
+padding: 0px;
+
+}
+
+#tags li
+{
+  font-weight: bold;
+  color:#fff;
+  font-family: 'Source Sans Pro', sans-serif;
+  display: inline;
+  list-style-type: none;
+  padding: 4px;
+  margin: 0px;
+  border-radius: 3px;
+}
+
+.badge
 {
   margin: 4px;
   width: 10px;
   height: 10px;
-  float: right;
+  float: left;
   display: block;
   border-radius: 10px;
 }
 
-.badge-1 { background: #23ae59; }
-.badge-2 { background: #508cbf; }
-.badge-3 { background: #ff4954; }
-.badge-4 { background: #ff6240; }
-.badge-5 { background: #ffcd00; }
-.badge-6 { background: #7759BF; }
-.badge-7 { background: #15AEAC; }
-.badge-8 { background: #FFA43D; }
+.card .badge
+{
+  float: right;
+}

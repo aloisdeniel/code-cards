@@ -10,32 +10,41 @@
 <body>
   <!-- DATA -->
 
-  <code id="snippets" style="display: none;">
-  @(xml)(1,2)-------------------------------------------------------------------------
-  Ressources de thème
-  ------------------------------------------------------------------------------------
-  Créer des resources dynamiques en fonction du thème selectionné. Attention de bien utiliser l'extension de balisage {ThemeResource }.
-  -----------------------------------------------------------------------------------------------
-  <ResourceDictionary>
-    <ResourceDictionary.ThemeDictionaries>
-      <ResourceDictionary x:Key="Light">
-        <SolidColorBrush x:Key="myBrush" Color="{StaticResource SystemBaseHighColor}"/>
-      </ResourceDictionary>
-      <ResourceDictionary x:Key="Dark">
-        <SolidColorBrush x:Key="myBrush" Color="{StaticResource SystemBaseHighColor}"/>
-      </ResourceDictionary>
-      <ResourceDictionary x:Key="HighContrast">
-        <SolidColorBrush x:Key="myBrush" Color="{ThemeResource SystemColorButtonFaceColor}"/>
-      </ResourceDictionary>
-    </ResourceDictionary.ThemeDictionaries>
-  </ResourceDictionary>
-  @(cs)(3,2)-------------------------------------------------------------------------------------------
-  Dossiers de l application
-  -----------------------------------------------------------------------------------------------
-  Récupérer les dossiers locaux de l'application pour y stocker ou charger des fichiers.
-  -----------------------------------------------------------------------------------------------
-  var folder = ApplicationData.Current.LocalFolder;
-  var settings = ApplicationData.Current.LocalSettings;
+  <ol id="tags">
+    <li>Windows 10</li>
+    <li>C#</li>
+    <li>XAML</li>
+  </ol>
+
+  <code
+    class="snippet"
+    cc-lang="xml"
+    cc-tags="1,2"
+    cc-title="Ressources de thème"
+    cc-description="Créer des resources dynamiques en fonction du thème selectionné. Attention de bien utiliser l'extension de balisage {ThemeResource }." >
+    <ResourceDictionary>
+      <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+          <SolidColorBrush x:Key="myBrush" Color="Gray"/>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+          <SolidColorBrush x:Key="myBrush" Color="Black"/>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="HighContrast">
+          <SolidColorBrush x:Key="myBrush" Color="White"/>
+        </ResourceDictionary>
+      </ResourceDictionary.ThemeDictionaries>
+    </ResourceDictionary>
+  </code>
+
+  <code
+    class="snippet"
+    cc-lang="cs"
+    cc-tags="2,3"
+    cc-title="Dossiers de l application"
+    cc-description="Récupérer les dossiers locaux de l'application pour y stocker ou charger des fichiers." >
+    var folder = ApplicationData.Current.LocalFolder;
+    var settings = ApplicationData.Current.LocalSettings;
   </code>
 
   <!-- LAYOUT -->
