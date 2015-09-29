@@ -7,7 +7,7 @@ var snippetsNodes = $("code.snippet").each(function(index ) {
       title: $(this).attr("cc-title"),
       lang: $(this).attr("cc-lang"),
       description: $(this).attr("cc-description"),
-      tags: $(this).attr("cc-tags"),
+      tags: $(this).attr("cc-tags").split(','),
       content: $(this).html()
   });
 });
