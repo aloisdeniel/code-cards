@@ -16,6 +16,7 @@
     <li>Windows 10</li>
     <li>C#</li>
     <li>XAML</li>
+    <li>Windows 8.1</li>
   </ol>
 
   <script
@@ -44,7 +45,7 @@
     class="snippet"
     type="code-snippet"
     data-lang="cs"
-    data-tags="1,2"
+    data-tags="1,2,4"
     data-title="Dossiers de l application"
     data-description="Récupérer les dossiers locaux de l'application pour y stocker ou charger des fichiers.">
     var folder = ApplicationData.Current.LocalFolder;
@@ -342,6 +343,17 @@
         var v1 = n ?? 0; // = 0
         var v2 = int?.GetValueOrDefault(value); // = 0
         var v3 = Nullable<int>.GetValueOrDefault(value); // = 0
+      </script>
+
+      <script
+        class="snippet"
+        type="code-snippet"
+        data-lang="cs"
+        data-tags="2"
+        data-title="Joindre les valeurs d'une collection sous forme de chaîne"
+        data-description="Une fonction existe por cela.">
+        var joined = String.Join(",", new string[] { "1", "2", "3" });
+        // => "1,2,3"
       </script>
 
   <!-- LAYOUT -->
