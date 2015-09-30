@@ -1,7 +1,13 @@
+
 html, pre, body, code
 {
   margin: 0px;
   padding: 0px;
+}
+
+html
+{
+    width: 1100px;
 }
 
 code
@@ -13,13 +19,7 @@ code
 .card
 {
   width: 500px;
-}
-
-@media print
-{
-    .card{
-        page-break-inside: avoid;
-    }
+  page-break-inside: avoid;
 }
 
 code.snippet
@@ -67,23 +67,20 @@ h5
 
 /* Badges - Tags */
 
-.badge-1, .tag-1 { background: #23ae59; }
-.badge-2, .tag-2 { background: #508cbf; }
-.badge-3, .tag-3 { background: #ff4954; }
-.badge-4, .tag-4 { background: #ff6240; }
-.badge-5, .tag-5 { background: #ffcd00; }
-.badge-6, .tag-6 { background: #7759BF; }
-.badge-7, .tag-7 { background: #15AEAC; }
-.badge-8, .tag-8 { background: #FFA43D; }
+.badge-0, .tag-0 { background: #23ae59; }
+.badge-1, .tag-1 { background: #508cbf; }
+.badge-2, .tag-2 { background: #ff4954; }
+.badge-3, .tag-3 { background: #ff6240; }
+.badge-4, .tag-4 { background: #ffcd00; }
+.badge-5, .tag-5 { background: #7759BF; }
+.badge-6, .tag-6 { background: #15AEAC; }
+.badge-7, .tag-7 { background: #FFA43D; }
+.badge-8, .tag-8 { background: #a95e40; }
+.badge-9, .tag-9 { background: #6477c6; }
 
 #tags
 {
-margin-top: 16px;
-margin-left: 10px;
-margin-right: 10px;
-margin-bottom: 6px;
-padding: 0px;
-
+  display: none;
 }
 
 #tags li, h5 span

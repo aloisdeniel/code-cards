@@ -1,13 +1,15 @@
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>Code cards</title>
-  <meta name="description" content="Code cards">
-  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/tomorrow.min.css">
-  <link rel="stylesheet" href="main.css">
+  <meta name="description" content="Code cards" />
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css' />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/tomorrow.min.css" rel='stylesheet' type='text/css' />
+  <link rel="stylesheet" href="main.css" type="text/css" media="print" />
+  <link rel="stylesheet" href="main.css" type="text/css" />
 </head>
 <body>
+
   <!-- DATA -->
 
   <ol id="tags">
@@ -16,12 +18,13 @@
     <li>XAML</li>
   </ol>
 
-  <code
+  <script
     class="snippet"
-    cc-lang="xml"
-    cc-tags="1,2"
-    cc-title="Ressources de thème"
-    cc-description="Créer des resources dynamiques en fonction du thème selectionné. Attention de bien utiliser l'extension de balisage {ThemeResource }." >
+    type="code-snippet"
+    data-lang="xml"
+    data-tags="1,3"
+    data-title="Ressources de thème"
+    data-description="Créer des resources dynamiques en fonction du thème selectionné. Attention de bien utiliser l'extension de balisage {ThemeResource }." >
     <ResourceDictionary>
       <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Light">
@@ -35,29 +38,344 @@
         </ResourceDictionary>
       </ResourceDictionary.ThemeDictionaries>
     </ResourceDictionary>
-  </code>
+  </script>
 
-  <code
+  <script
     class="snippet"
-    cc-lang="cs"
-    cc-tags="2,3"
-    cc-title="Dossiers de l application"
-    cc-description="Récupérer les dossiers locaux de l'application pour y stocker ou charger des fichiers." >
+    type="code-snippet"
+    data-lang="cs"
+    data-tags="1,2"
+    data-title="Dossiers de l application"
+    data-description="Récupérer les dossiers locaux de l'application pour y stocker ou charger des fichiers.">
     var folder = ApplicationData.Current.LocalFolder;
     var settings = ApplicationData.Current.LocalSettings;
-  </code>
+  </script>
+
+  <script
+    class="snippet"
+    type="code-snippet"
+    data-lang="cs"
+    data-tags="2"
+    data-title="Déclarer une méthode asynchrone"
+    data-description="N'oubliez pas de suffixer le nom de la méthode par Async et de proposer une annulation.">
+    private async Task ExecuteAsync(CancellationToken token)
+    {
+        await Task.Delay(5000,token);
+        token.ThrowIfCancellationRequested();
+    }
+  </script>
+
+  <script
+    class="snippet"
+    type="code-snippet"
+    data-lang="cs"
+    data-tags="2"
+    data-title="Appeler une méthode asynchrone"
+    data-description="Prévoir autant que possible l'annulation des tâches." >
+    var cts = new CancellationTokenSource();
+
+    try
+    {
+      await this.ExecuteAsync(cts.Token);
+    }
+    catch(TaskCanceledException e)
+    {
+      Debug.WriteLine("Task canceled");
+    }
+  </script>
+
+  <script
+    class="snippet"
+    type="code-snippet"
+    data-lang="cs"
+    data-tags="2"
+    data-title="Annuler l'exécution d'une méthode asynchrone"
+    data-description="Il faut conserver la source d'annulation.">
+    var cts = new CancellationTokenSource();
+    //...
+    cts.Cancel();
+  </script>
+
+  <script
+    class="snippet"
+    type="code-snippet"
+    data-lang="cs"
+    data-tags="2"
+    data-title="Rendre une méthode synchrone asynchrone"
+    data-description="Il faut retourner un objet Task.">
+    private Task ExecuteAsync(CancellationToken token)
+    {
+        // ...
+        return Task.FromResult(true);
+    }
+  </script>
+
+  <script
+    class="snippet"
+    type="code-snippet"
+    data-lang="cs"
+    data-tags="2"
+    data-title="Proposer une valeur par défaut si null"
+    data-description="Utilisez l'opérateur ??">
+    return foo ?? new List<Foo>();
+  </script>
+
+  <script
+    class="snippet"
+    type="code-snippet"
+    data-lang="cs"
+    data-tags="2"
+    data-title="Créer une méthode d'extension"
+    data-description="Il est possible d'ajouter des méthodes à des types existants">
+    public static class StringExtensions
+    {
+       public static IsToto(this string s)
+       {
+         return s.Trim().ToUpperInvariant() == "TOTO";
+       }
+
+       public static Use()
+       {
+         //Ne pas oublier d'importer le namespace de nos extensions
+         string example = "tOtO";
+         if(example.IsToto())
+         {
+           // ...
+         }
+       }
+
+    }
+  </script>
+
+  <script
+    class="snippet"
+    type="code-snippet"
+    data-lang="cs"
+    data-tags="2"
+    data-title="Afficher un objet de manière spécifique dans le debuggeur"
+    data-description="Un attribut de classe existe pour cela : DebuggerDisplay.">
+    [DebuggerDisplay("{value}", Name = "{key}")]
+    public class KeyValuePair
+    {
+        private object key;
+        private object value;
+    }
+  </script>
+
+  <script
+    class="snippet"
+    type="code-snippet"
+    data-lang="cs"
+    data-tags="2"
+    data-title="Inclure une méthode uniquement dans une configuration"
+    data-description="Plutôt que d'entourer la méthode de conditionnelles de pré-processing #if/#endif, un attribut existe : Conditional. Tous les appels à une méthode déclarée ainsi seront simplement ignorés sinon.">
+    [Conditional("DEBUG")]
+    public static void DebugMethod()
+    {
+      // ...
+    }
+  </script>
+
+  <script
+    class="snippet"
+    type="code-snippet"
+    data-lang="cs"
+    data-tags="2"
+    data-title="Créer une référence faible"
+    data-description="Même si une référence faible existe vers un objet, si elle n'a plus d'autres références fortes, l'emplacement mémoire sera libéré par le Garbage Collector.">
+    var weak = new WeakReference(new MyObject())
+    var o = weak.Target as MyObject;
+  </script>
+
+  <script
+    class="snippet"
+    type="code-snippet"
+    data-lang="cs"
+    data-tags="2"
+    data-title="Exposer publiquement une méthode privée pour les tests unitaires"
+    data-description="Il est possible de rendre visible une méthode privé pour une assembly donnée.">
+    [assembly: InternalsVisibleTo("Example.TestAssembly")]
+  </script>
+
+  <script
+    class="snippet"
+    type="code-snippet"
+    data-lang="cs"
+    data-tags="2"
+    data-title="Cast explicite"
+    data-description="Surcharger un cast explicite permet de convertir des objets de manière élégante.">
+    public class DbObject
+    {
+        public int Identifier { get; set; }
+
+        // Appelé lors d'un appel :
+        //     DtObject dto = ... ;
+        //     DbObject dbo = (DbObject) dto;
+        public static explicit operator DbObject(DtObject transfertObject)
+        {
+            return new DbObject()
+            {
+                Identifier = int.Parse(transfertObject.Identifier),
+            };
+        }
+    }
+  </script>
+
+  <script
+    class="snippet"
+    type="code-snippet"
+    data-lang="cs"
+    data-tags="2"
+    data-title="Générer des combinaisons d'enums"
+    data-description="Pour générer toutes les combinaisons possibles d'un ensemble de valeurs, un attribut existe : Flags.">
+    [Flags]
+    enum Rights : short
+    {
+        None = 0
+        Write = 1,
+        Read = 2,
+        // Read-Write = 3
+        Delete = 4,
+        // Write-Delete = 5
+        // Read-Delete = 6
+        // Write-Read-Delete = 7
+    }
+  </script>
+
+  <script
+    class="snippet"
+    type="code-snippet"
+    data-lang="cs"
+    data-tags="2"
+    data-title="Exposer une collection en lecture seule"
+    data-description="Pour éviter une modification imprévue, il est possible d'exposer une collection en lecture seule.">
+    public IEnumerable<string> Items
+    {
+        get { return this.items.AsReadOnly(); }
+    }
+  </script>
+
+  <script
+    class="snippet"
+    type="code-snippet"
+    data-lang="cs"
+    data-tags="2"
+    data-title="Obtenir la valeur par défaut d'un type"
+    data-description="Lorsque l'on ne connait pas le type, il peut être interressant d'obtenir une valeur par défault.">
+    // GetDefault<string>() => null
+    // GetDefault<int>() => 0
+    public T GetDefault<T>()
+    {
+        return default(T);
+    }
+  </script>
+
+  <script
+    class="snippet"
+    type="code-snippet"
+    data-lang="cs"
+    data-tags="2"
+    data-title="Chaînes échappées"
+    data-description="Lorsqu'il devient compliqué d'échapper un grand nombre de caractère dans une chaîne de caractère, les verbatims deviennent intéressantes.">
+    var s1 = "\\MySuper\\Path\\"; //\MySuper\Path\
+    var s2 = @"\MySuper\Path\"; //\MySuper\Path\
+    var s3 = "\""; //"
+    var s4 = @""""; //"
+  </script>
+
+  <script
+    class="snippet"
+    type="code-snippet"
+    data-lang="cs"
+    data-tags="2"
+    data-title="Combiner des chemins"
+    data-description="La classe Path est à privilégier">
+    // "C:\root\sub"
+    var p1 = System.IO.Path.Combine(@"C:\root",@"sub");
+
+    // "\sub" -> Attention, si le second est absolut il sera renvoyé.
+    var p2 = System.IO.Path.Combine(@"C:\root",@"\sub");
+  </script>
+
+  <script
+      class="snippet"
+      type="code-snippet"
+      data-lang="cs"
+      data-tags="2"
+      data-title="Constructeurs statiques"
+      data-description="Il est possible d'initialiser un type avant que la première instance de ce dernier ne soit créée.">
+      public class Example
+      {
+          static Example()
+          {
+             // A la première utilisation du type.
+          }
+
+          public Example()
+          {
+             // A chaque instanciation
+          }
+      }
+    </script>
+
+    <script
+        class="snippet"
+        type="code-snippet"
+        data-lang="cs"
+        data-tags="2"
+        data-title="Tester si une chaîne est vide ou nulle"
+        data-description="Une fonction existe pour cela : String.IsNullOrEmpty()">
+        if(String.IsNullOrEmpty(myString))
+        {
+          // ...
+        }
+      </script>
+
+      <script
+        class="snippet"
+        type="code-snippet"
+        data-lang="cs"
+        data-tags="2"
+        data-title="Obtenir la valeur par defaut d'un type nullable si nul"
+        data-description="Avoir la valeur par défaut si la valeur est nulle.">
+        int? n = null;
+        var v1 = n ?? 0; // = 0
+        var v2 = int?.GetValueOrDefault(value); // = 0
+        var v3 = Nullable<int>.GetValueOrDefault(value); // = 0
+      </script>
 
   <!-- LAYOUT -->
 
   <div id="content"></div>
 
-  <!-- SCRIPTS -->
+  <!-- SCRIPTS : LIBRARIES -->
 
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/minigrid/1.6.5/minigrid.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+
+  <!-- SCRIPTS : HIGHLIGHTJS LANGUAGES -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/xml.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/cs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/cmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/coffeescript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/cpp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/gradle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/java.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/json.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/objectivec.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/powershell.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/sql.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/swift.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/typescript.min.js"></script>
+
+  <!-- SCRIPTS : MAIN -->
+
   <script src="main.js"></script>
 </body>
 </html>
