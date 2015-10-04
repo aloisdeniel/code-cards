@@ -1,6 +1,7 @@
 var koa = require('koa');
 var json = require('koa-json');
 var bodyParser = require('koa-bodyparser');
+var Joi = require('joi');
 
 var Model = require('./Model.js');
 var Controller = require('./Controller.js');
@@ -25,15 +26,16 @@ app.use(function *(next) {
 // Routes
 
 var models = {
-  tags: new Model('code-tags.db', {
-    'value' : true,
-    'color' : true,
-  }),
+  tags: new Model('code-tags.db', Joi.object().keys({
+    'value' : Joi.string(),
+    'color' : Joi.string().regex(/#[0-9A-Fa-f]{6}/)
+  })),
   cards: new Model('code-cards.db', {
-    'title' : true,
-    'description' : true,
-    'tags' : true,
-    'snippet' : true,
+    'title' : Joi.string(),
+    'description' : Joi.string(),
+    'language' : Joi.string().allow(['xml', 'cs', 'bash', 'cmake', 'coffeescript', 'cpp', 'css', 'go', 'gradle', 'java', 'json', 'javascript', 'objectivec', 'powershell', 'sql', 'swift', 'typescript' ]),
+    'tags' : Joi.array().items(Joi.string()),
+    'snippet' : Joi.string()
   })
 };
 

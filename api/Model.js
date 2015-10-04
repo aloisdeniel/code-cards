@@ -1,8 +1,9 @@
 var Datastore = require('nedb');
+var Joi = require('joi');
 
-var Model = function(dbFile, structure) {
+var Model = function(dbFile, schema) {
   this.db = new Datastore({ filename: dbFile, autoload: true });
-  this.structure = structure;
+  this.schema = schema;
 }
 
 /*
@@ -10,30 +11,22 @@ private
 */
 
 Model.prototype._clean = function(entity) {
-
-  var result = {};
-
-  for (var key in this.structure) {
-    result[key] = entity[key];
-  }
-
-  return result;
+  // TODO : remove all properties that are not into this.schema
+  return entity;
 }
 
 Model.prototype._validate = function(entity) {
-
-  var err = new Error('Invalid argument');
-  err.status = 400;
-
-  if(!entity)
-    throw err;
-
-  for (var key in this.structure) {
-    if(this.structure[key] && typeof entity[key] == 'undefined')
-    {
-      throw err;
-    }
-  }
+  var schema = this.schema;
+  return new Promise(function(resolve,reject) {
+    Joi.validate(entity, schema, function (err, value) {
+      if(err)
+      {
+        err.status = 400;
+        return reject(err);
+      }
+      resolve(value);
+     });
+  });
 }
 
 /*
@@ -52,13 +45,14 @@ Model.prototype.all = function(offset,limit) {
 
 Model.prototype.create = function(entity) {
   var db = this.db;
-  this._validate(entity);
   entity = this._clean(entity);
-  return new Promise(function(resolve,reject) {
-    db.insert(entity, function(err,docs) {
-      if(err !== null) return reject(err);
-      resolve(docs);
-    });
+  return this._validate(entity).then(function(r){
+    return new Promise(function(resolve,reject) {
+      db.insert(entity, function(err,docs) {
+        if(err !== null) return reject(err);
+        resolve(docs);
+      });
+   });
  });
 };
 
