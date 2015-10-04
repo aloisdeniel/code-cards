@@ -7,7 +7,7 @@ var program = require('commander');
 program
   .command('start')
   .description('Starts the local server.')
-  .option('-p, --port [type]', 'The server [port]', 5555)
+  .option('-p, --port [port]', 'The server [port]', 5555)
   .action(function(options){
     var server = require('./server.js');
     server.start(options.port);
@@ -28,6 +28,8 @@ program
   .action(function(options){
     throw new Error('Not implemented');
   });
+
+if (process.argv.length == 2) program.help();
 
 program
   .version('0.0.1')
