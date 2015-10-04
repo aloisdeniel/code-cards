@@ -17,7 +17,47 @@
     <li>C#</li>
     <li>XAML</li>
     <li>Windows 8.1</li>
+    <li>Javascript</li>
+    <li>ES5</li>
   </ol>
+
+  <script
+    class="snippet"
+    type="code-snippet"
+    data-lang="js"
+    data-tags="5,6"
+    data-title="Créer une classe et l'instancier"
+    data-description="Une classe reste une fonction en javascript.">
+    // Classe de base
+
+    var User = function (login) {
+      this.login = login;
+    }
+
+    User.prototype.talk = function() {
+      console.log('Hello, how are you ?');
+    }
+
+    // Héritage
+
+    var Admin = function(login,level) {
+      User.call(this, login);
+      this.level = level;
+    }
+
+    Admin.prototype = Object.create(User.prototype);
+
+    Admin.prototype.talk = function(){
+     console.log("Hello slave, just fine !");
+    };
+
+    // Instanciation
+
+    var user = new User('john');
+    var admin = new User('shad',1);
+    user.talk();
+    admin.talk();
+  </script>
 
   <script
     class="snippet"
