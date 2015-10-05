@@ -1,11 +1,11 @@
 var route = require('koa-route');
 
-var Router = function(path, controller) {
+var Card = function(path,controller) {
   this.path = path;
-  this.controller = controller;
-};
+  this.controller = controller
+}
 
-Router.prototype.register = function(app) {
+Card.prototype.register = function(app) {
   app.use(route.get(this.path, this.controller.all()));
   app.use(route.post(this.path, this.controller.create()));
   app.use(route.get(this.path + "/{id}", this.controller.read()));
@@ -13,4 +13,4 @@ Router.prototype.register = function(app) {
   app.use(route.delete(this.path + "/{id}", this.controller.delete()));
 };
 
-module.exports = Router;
+module.exports = Card;

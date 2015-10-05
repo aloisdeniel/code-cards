@@ -2,10 +2,10 @@ var koa = require('koa');
 var json = require('koa-json');
 var bodyParser = require('koa-bodyparser');
 var Joi = require('joi');
-
-var Model = require('./Model.js');
-var Controller = require('./Controller.js');
-var Router = require('./Router.js');
+var Db = require('tingodb')().Db;
+var Controller = require('./controllers');
+var Route = require('./routes');
+var Model = require('./models');
 
 var app = koa();
 
@@ -23,26 +23,22 @@ app.use(function *(next) {
   }
 });
 
+// database
+
+var db = new Db('code-cards.db', {});
+
 // Routes
 
 var models = {
-  cards: new Model('code-cards.db', {
-    'title' : Joi.string(),
-    'description' : Joi.string(),
-    'language' : Joi.string().allow(['xml', 'cs', 'bash', 'cmake', 'coffeescript', 'cpp', 'css', 'go', 'gradle', 'java', 'json', 'javascript', 'objectivec', 'powershell', 'sql', 'swift', 'typescript' ]),
-    'tags' : Joi.array().items(Joi.string()),
-    'snippet' : Joi.string()
-  })
+  card: new Model.Card(db)
 };
 
 var controllers = {
-  tags: new Controller(models.tags),
-  cards: new Controller(models.cards),
+  card: new Controller.Card(models.card)
 };
 
 var routes = {
-  tags: new Router('/tags',controllers.tags),
-  cards: new Router('/cards',controllers.cards),
+  card: new Route.Card('/cards',controllers.card)
 };
 
 for (var route in routes) {
