@@ -26,10 +26,6 @@ app.use(function *(next) {
 // Routes
 
 var models = {
-  tags: new Model('code-tags.db', Joi.object().keys({
-    'value' : Joi.string(),
-    'color' : Joi.string().regex(/#[0-9A-Fa-f]{6}/)
-  })),
   cards: new Model('code-cards.db', {
     'title' : Joi.string(),
     'description' : Joi.string(),
