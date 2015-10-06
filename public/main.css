@@ -122,14 +122,27 @@ h5
 {
   display: block;
   float:left;
-  font-weight: bold;
-  margin: 8px 11px;
-  color: #508cbf;
-  font-size: 20px;
+  margin: 7px 11px;
+  color: #f4f4f4;
+  font-size: 22px;
   text-decoration: none;
 }
 
+#header a.logo i
+{
+  color: #508cbf;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 28px;
+}
+
 #header a.logo:hover
+{
+  color: #111;
+  text-decoration: none;
+}
+
+#header a.logo:hover i
 {
   color: #111;
   text-decoration: none;
