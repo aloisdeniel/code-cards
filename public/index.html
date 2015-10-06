@@ -399,18 +399,14 @@
   <!-- LAYOUT -->
 
   <div id="app">
-    <div class="card" v-repeat="cards">
-      <h2>
-        <span v-repeat="tags" class="tag">{{value}}</span>
-        {{title}}
-      </h2>
-      <p>{{description}}</p>
-      <pre>
-        <code class="{{language}}" v-transition="highlight">
-          {{snippet}}
-        </code>
-      </pre>
+
+    <div class="header">
+      <a v-link="{ path: '/home' }">Home</a>
+      <a v-link="{ path: '/create' }">Add</a>
     </div>
+
+    <router-view></router-view>
+
   </div>
 
   <!-- SCRIPTS : LIBRARIES -->
@@ -419,6 +415,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/minigrid/1.6.5/minigrid.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/0.12.16/vue.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/0.6.2/vue-router.min.js"></script>
 
   <!-- SCRIPTS : HIGHLIGHTJS LANGUAGES -->
 
@@ -442,6 +439,8 @@
 
   <!-- SCRIPTS : MAIN -->
 
+  <script src="pages/Home.js"></script>
+  <script src="pages/Create.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
