@@ -398,13 +398,27 @@
 
   <!-- LAYOUT -->
 
-  <div id="content"></div>
+  <div id="app">
+    <div class="card" v-repeat="cards">
+      <h2>
+        <span v-repeat="tags" class="tag">{{value}}</span>
+        {{title}}
+      </h2>
+      <p>{{description}}</p>
+      <pre>
+        <code class="{{language}}">
+          {{snippet}}
+        </code>
+      </pre>
+    </div>
+  </div>
 
   <!-- SCRIPTS : LIBRARIES -->
 
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/minigrid/1.6.5/minigrid.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/0.12.16/vue.min.js"></script>
 
   <!-- SCRIPTS : HIGHLIGHTJS LANGUAGES -->
 
