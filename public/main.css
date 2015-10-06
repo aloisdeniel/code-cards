@@ -22,7 +22,7 @@ code.snippet
   display: none;
 }
 
-pre
+pre, .snippet
 {
   border-right: dashed 1px #ddd;
   border-left: dashed 1px #ddd;
@@ -60,9 +60,122 @@ h5
   text-align: right;
 }
 
-/* Badges - Tags */
+/* Create */
 
-.badge-0, .tag-0 { background: #23ae59; }
+.card.full
+{
+  margin: 1%;
+  width: 98%;
+}
+
+.card.full .snippet
+{
+  padding: 7px;
+}
+
+.card.full textarea
+{
+  resize:vertical ;
+}
+.card.full textarea, .card.full select, .card.full input
+{
+  width: 100%;
+}
+
+.card.full .snippet textarea
+{
+  height: 250px;
+}
+
+/* Header */
+
+#header
+{
+  height: 46px;
+  font-family: 'Source Sans Pro', sans-serif;
+  width: 100%;
+  margin: 0px;
+  background: #f4f4f4;
+}
+
+.subheader
+{
+  height: 46px;
+  font-family: 'Source Sans Pro', sans-serif;
+  width: 100%;
+  margin: 0px;
+  background: #ddd;
+}
+
+.subheader h1
+{
+  font-weight: normal;
+  font-size: 16px;
+  margin: 0px;
+  margin-left: 10px;
+  padding-top: 10px;
+  color: #888;
+}
+
+
+#header a.logo
+{
+  display: block;
+  float:left;
+  font-weight: bold;
+  margin: 8px 11px;
+  color: #508cbf;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+#header a.logo:hover
+{
+  color: #111;
+  text-decoration: none;
+}
+
+.subheader a.button
+{
+  margin-top: 10px;
+  margin-right: 10px;
+  display: block;
+  padding: 7px 12px;
+  border-radius: 3px;
+  float:right;
+  color: #fff;
+  background: #508cbf;
+  font-weight: bold;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.subheader a.button.negative
+{
+  color: #999;
+  background: #bbb;
+}
+
+.subheader a.button:hover
+{
+  color: #508cbf;
+  background: #111;
+  text-decoration: none;
+}
+
+#header .search
+{
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  margin: 10px;
+  height: 25px;
+  float:right;
+  text-align: right;
+  padding: 0px 3px;
+}
+
+/* Badges - Tags */
+.badge-0, .tag-0, .tag { background: #23ae59; }
 .badge-1, .tag-1 { background: #508cbf; }
 .badge-2, .tag-2 { background: #ff4954; }
 .badge-3, .tag-3 { background: #ff6240; }

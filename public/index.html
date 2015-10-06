@@ -4,6 +4,7 @@
   <title>Code cards</title>
   <meta name="description" content="Code cards" />
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css' />
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel='stylesheet' type='text/css' />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/tomorrow.min.css" rel='stylesheet' type='text/css' />
   <link rel="stylesheet" href="main.css" type="text/css" media="print" />
   <link rel="stylesheet" href="main.css" type="text/css" />
@@ -400,12 +401,14 @@
 
   <div id="app">
 
-    <div class="header">
-      <a v-link="{ path: '/home' }">Home</a>
-      <a v-link="{ path: '/create' }">Add</a>
+    <div id="header">
+    <input class="search" type="text" placeholder="Search by tags"></t>
+      <a class="logo" v-link="{ path: '/home' }">CODE-CARDS</a>
     </div>
 
-    <router-view></router-view>
+    <div id="content">
+      <router-view></router-view>
+    </div>
 
   </div>
 

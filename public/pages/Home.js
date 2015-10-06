@@ -1,6 +1,9 @@
+
+
 var HomePage = Vue.extend({
-  template: '<div class="card" v-repeat="cards"> <h2> <span v-repeat="tags" class="tag">{{value}}</span> {{title}} </h2> <p>{{description}}</p> <pre> <code class="{{language}}" v-transition="highlight"> {{snippet}} </code> </pre> </div>',
+  template: '<div class="subheader"><a class="button" v-link="{ path: \'/create\' }"><i class="ion-plus-round"></i></a><h1>{{title}}</h1></div><div class="home-content"><div class="card" v-repeat="cards"> <h2> <span v-repeat="tags" class="tag">{{$value}}</span> {{title}} </h2> <p v-if="description">{{description}}</p> <pre> <code class="{{language}}" v-transition="highlight"> {{snippet}} </code> </pre> </div></div>',
   props: {
+    title: {type: String, default: 'Home' },
     cards: {type: Array, default: [] },
     tags: {type: Array, default: [] },
   },
@@ -13,7 +16,7 @@ var HomePage = Vue.extend({
         $('pre code').each(function(i,b){
           hljs.highlightBlock(b);
         })
-      minigrid('#app', '.card', 10);
+      minigrid('.home-content', '.card', 10);
     }
   },
   methods: {
