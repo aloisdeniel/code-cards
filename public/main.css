@@ -5,11 +5,6 @@ html, pre, body, code
   padding: 0px;
 }
 
-html
-{
-    width: 1100px;
-}
-
 code
 {
   word-wrap:break-word;

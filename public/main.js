@@ -7,9 +7,14 @@ var app = new Vue({
 
   watch: {
     cards: function(val,oldVal) {
-      console.log('updated list')
-      hljs.initHighlightingOnLoad();
-      minigrid('#content', '.card', 10);
+
+        console.log('updated list')
+
+        $('pre code').each(function(i,b){
+          hljs.highlightBlock(b);
+        })
+
+      minigrid('#app', '.card', 10);
     }
   },
 
@@ -50,5 +55,5 @@ var app = new Vue({
 app.update();
 
 window.addEventListener('resize', function(){
-  minigrid('#content', '.card', 10);
+  minigrid('#app', '.card', 10);
 });
