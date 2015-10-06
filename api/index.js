@@ -25,7 +25,7 @@ app.use(function *(next) {
 
 // database
 
-var db = new Db('code-cards.db', {});
+var db = new Db('data', {});
 
 // Routes
 

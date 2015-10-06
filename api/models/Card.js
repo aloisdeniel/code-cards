@@ -1,26 +1,9 @@
 var Joi = require('joi');
-
-var Schema = {
-  'title' : Joi.string(),
-  'description' : Joi.string(),
-  'language' : Joi.string().allow(['xml', 'cs', 'bash', 'cmake', 'coffeescript', 'cpp', 'css', 'go', 'gradle', 'java', 'json', 'javascript', 'objectivec', 'powershell', 'sql', 'swift', 'typescript' ]),
-  'tags' : Joi.array().items(Joi.string()),
-  'snippet' : Joi.string()
-};
+var Schema = require('./schemas/Card.js');
 
 var Card = function(db) {
   this.collection = db.collection("cards");
 };
-
-function toPromise(req){
-  console.log(req)
-  return new Promise(function(resolve,reject) {
-     return req.exec(function(err,docs) {
-       if(err !== null) return reject(err);
-       resolve(docs);
-     });
-  });
-}
 
 // Validation
 
@@ -33,11 +16,11 @@ Card.prototype.validate = function(entity) {
   });
 }
 
-
-
 // Cards
 
 Card.prototype.all = function(offset,limit,tags) {
+
+  var col = this.collection;
 
   if(tags){
     tags = { tags: { $all: tags } };
@@ -46,42 +29,60 @@ Card.prototype.all = function(offset,limit,tags) {
     tags = {};
   }
 
-/*  if(!limit)
-    return toPromise(this.collection.find(tags));
+  if(!limit)
+    return new Promise(function(resolve,reject) {
+      col.find(tags).toArray((e, v) => { if(e) return reject(e); resolve(v); });
+    });
 
-  if(!offset) offset = 0;*/
-  var col = this.collection;
+  if(!offset) offset = 0;
+
   return new Promise(function(resolve,reject) {
-    col.find(tags, (e, v) => { if(e) return reject(e); resolve(v); });
+    col.find(tags).skip(offset).limit(limit).toArray((e, v) => { if(e) return reject(e); resolve(v); });
   });
+
 }
 
 Card.prototype.create = function(entity) {
+  var col = this.collection;
+
+  var insert = new Promise(function(resolve,reject) {
+    col.insert(entity,(e, v) => { if(e) return reject(e); resolve(v); });
+  });
+
   return this.validate(entity).then(function(r){
-    return toPromise(this.collection.insert(entity))
+    return insert;
   });
 }
 
 Card.prototype.delete = function(id) {
-  return toPromise(this.collection.remove({ _id: id },{}));
+  var col = this.collection;
+  return new Promise(function(resolve,reject) {
+    col.remove({ _id: id },{}, (e, v) => { if(e) return reject(e); resolve(v); });
+  });
 }
 
 Card.prototype.read = function(id) {
-  return toPromise(this.collection.findOne({ _id: id }));
+  var col = this.collection;
+  return new Promise(function(resolve,reject) {
+    col.findOne({ _id: id }, (e, v) => { if(e) return reject(e); resolve(v); });
+  });
 }
 
 Card.prototype.update = function(id,entity) {
-  return toPromise(this.collection.update({ _id: id }, entity));
-}
+  var col = this.collection;
+  var insert = new Promise(function(resolve,reject) {
+    col.update({ _id: id }, entity, (e, v) => { if(e) return reject(e); resolve(v); });
+  });
 
-Card.prototype.find = function(tags) {
-  return toPromise(this.collection.find({ tags: { $all: tags } }));
+  return this.validate(entity).then(function(r){
+    return insert;
+  });
 }
 
 // Tags
 
 Card.prototype.tags = function() {
-  return toPromise(this.collection.distinct("tags",{}));
+  return this.collection.distinct("tags",{});
 }
 
 module.exports = Card;
