@@ -121,7 +121,7 @@
 
 
 	// module
-	exports.push([module.id, "\r\nhtml, pre, body, code\r\n{\r\n  margin: 0px;\r\n  padding: 0px;\r\n  background-color: #f5f5f5;\r\n}\r\n\r\ncode\r\n{\r\n  word-wrap:break-word;\r\n  font-size: 11px;\r\n}\r\n\r\n.card\r\n{\r\n  width: 500px;\r\n  page-break-inside: avoid;\r\n}\r\n\r\ncode.snippet\r\n{\r\n  display: none;\r\n}\r\n\r\nh2\r\n{\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  background: #222222;\r\n  color: #fefefe;\r\n  margin: 0;\r\n  padding: 8px;\r\n  font-size: 14px;\r\n}\r\n\r\np\r\n{\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  background: #ddd;\r\n  color: #555;\r\n  margin: 0;\r\n  padding: 8px;\r\n  font-size: 12px;\r\n}\r\n\r\nh5\r\n{\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  background: #eee;\r\n  color: #555;\r\n  margin: 0;\r\n  padding: 6px 4px ;\r\n  font-size: 12px;\r\n  text-align: right;\r\n}\r\n\r\n/* Create */\r\n\r\n.card.full\r\n{\r\n  margin: 1%;\r\n  width: 98%;\r\n}\r\n\r\n.card.full .snippet\r\n{\r\n  padding: 7px;\r\n}\r\n\r\n.card.full textarea\r\n{\r\n  resize:vertical ;\r\n}\r\n.card.full textarea, .card.full select, .card.full input\r\n{\r\n  width: 100%;\r\n}\r\n\r\n.card.full .snippet textarea\r\n{\r\n  height: 250px;\r\n}\r\n\r\n/* Header */\r\n\r\n#header\r\n{\r\n  height: 46px;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  width: 100%;\r\n  margin: 0px;\r\n  background: #f4f4f4;\r\n}\r\n\r\n.subheader\r\n{\r\n  height: 46px;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  width: 100%;\r\n  margin: 0px;\r\n  background: #ddd;\r\n}\r\n\r\n.subheader h1\r\n{\r\n  font-weight: normal;\r\n  font-size: 16px;\r\n  margin: 0px;\r\n  margin-left: 10px;\r\n  padding-top: 10px;\r\n  color: #888;\r\n}\r\n\r\n\r\n#header a.logo\r\n{\r\n  display: block;\r\n  float:left;\r\n  margin: 7px 11px;\r\n  color: #f4f4f4;\r\n  font-size: 22px;\r\n  text-decoration: none;\r\n}\r\n\r\n#header a.logo i\r\n{\r\n  color: #508cbf;\r\n  margin-right: 5px;\r\n  margin-bottom: 5px;\r\n  font-size: 28px;\r\n}\r\n\r\n#header a.logo:hover\r\n{\r\n  color: #111;\r\n  text-decoration: none;\r\n}\r\n\r\n#header a.logo:hover i\r\n{\r\n  color: #111;\r\n  text-decoration: none;\r\n}\r\n\r\n.subheader a.button\r\n{\r\n  margin-top: 10px;\r\n  margin-right: 10px;\r\n  display: block;\r\n  padding: 7px 12px;\r\n  border-radius: 3px;\r\n  float:right;\r\n  color: #fff;\r\n  background: #508cbf;\r\n  font-weight: bold;\r\n  font-size: 12px;\r\n  text-decoration: none;\r\n}\r\n\r\n.subheader a.button.negative\r\n{\r\n  color: #999;\r\n  background: #bbb;\r\n}\r\n\r\n.subheader a.button:hover\r\n{\r\n  color: #508cbf;\r\n  background: #111;\r\n  text-decoration: none;\r\n}\r\n\r\n#header .search\r\n{\r\n  border-radius: 3px;\r\n  border: 1px solid #ddd;\r\n  margin: 10px;\r\n  height: 25px;\r\n  float:right;\r\n  text-align: right;\r\n  padding: 0px 3px;\r\n}\r\n\r\n/* Badges - Tags */\r\n.badge-0, .tag-0, .tag { background: #23ae59; }\r\n.badge-1, .tag-1 { background: #508cbf; }\r\n.badge-2, .tag-2 { background: #ff4954; }\r\n.badge-3, .tag-3 { background: #ff6240; }\r\n.badge-4, .tag-4 { background: #ffcd00; }\r\n.badge-5, .tag-5 { background: #7759BF; }\r\n.badge-6, .tag-6 { background: #15AEAC; }\r\n.badge-7, .tag-7 { background: #FFA43D; }\r\n.badge-8, .tag-8 { background: #a95e40; }\r\n.badge-9, .tag-9 { background: #6477c6; }\r\n\r\n#tags\r\n{\r\n  display: none;\r\n}\r\n\r\n#tags li, h5 span\r\n{\r\n  font-weight: bold;\r\n  color:#fff;\r\n  font-size: 20px;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  display: inline;\r\n  list-style-type: none;\r\n  padding: 2px;\r\n  margin: 0px;\r\n  border-radius: 4px;\r\n}\r\n\r\n.tag\r\n{\r\n  display: block;\r\n  float: left;\r\n  font-size: 10px;\r\n  padding: 2px 5px;\r\n  margin-left: 4px;\r\n  border-radius: 2px;\r\n}\r\n\r\n.badge\r\n{\r\n  margin: 4px;\r\n  width: 10px;\r\n  height: 10px;\r\n  float: left;\r\n  display: block;\r\n  border-radius: 10px;\r\n}\r\n\r\n.card .badge\r\n{\r\n  float: right;\r\n}\r\n", ""]);
+	exports.push([module.id, "\r\nhtml, pre, body, code\r\n{\r\n  margin: 0px;\r\n  padding: 0px;\r\n  background-color: #f5f5f5;\r\n}\r\n\r\ncode\r\n{\r\n  word-wrap:break-word;\r\n  font-size: 11px;\r\n}\r\n\r\n.card\r\n{\r\n  width: 500px;\r\n  page-break-inside: avoid;\r\n}\r\n\r\ncode.snippet\r\n{\r\n  display: none;\r\n}\r\n\r\nh2\r\n{\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  background: #222222;\r\n  color: #fefefe;\r\n  margin: 0;\r\n  padding: 8px;\r\n  font-size: 14px;\r\n}\r\n\r\np\r\n{\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  background: #ddd;\r\n  color: #555;\r\n  margin: 0;\r\n  padding: 8px;\r\n  font-size: 12px;\r\n}\r\n\r\nh5\r\n{\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  background: #eee;\r\n  color: #555;\r\n  margin: 0;\r\n  padding: 6px 4px ;\r\n  font-size: 12px;\r\n  text-align: right;\r\n}\r\n\r\n/* Create */\r\n\r\n.card.full\r\n{\r\n  margin: 1%;\r\n  width: 98%;\r\n}\r\n\r\n.card.full .snippet\r\n{\r\n  padding: 7px;\r\n}\r\n\r\n.card.full textarea\r\n{\r\n  resize:vertical ;\r\n}\r\n.card.full textarea, .card.full select, .card.full input\r\n{\r\n  width: 100%;\r\n}\r\n\r\n.card.full .snippet textarea\r\n{\r\n  height: 250px;\r\n}\r\n\r\n/* Header */\r\n\r\n#header\r\n{\r\n  height: 46px;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  width: 100%;\r\n  margin: 0px;\r\n  background: #f4f4f4;\r\n}\r\n\r\n.subheader\r\n{\r\n  height: 46px;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  width: 100%;\r\n  margin: 0px;\r\n  background: #ddd;\r\n}\r\n\r\n.subheader h1\r\n{\r\n  font-weight: normal;\r\n  font-size: 16px;\r\n  margin: 0px;\r\n  margin-left: 10px;\r\n  padding-top: 10px;\r\n  color: #888;\r\n}\r\n\r\n\r\n#header a.logo\r\n{\r\n  display: block;\r\n  float:left;\r\n  margin: 7px 11px;\r\n  color: #f4f4f4;\r\n  font-size: 22px;\r\n  text-decoration: none;\r\n}\r\n\r\n#header a.logo i\r\n{\r\n  color: #508cbf;\r\n  margin-right: 5px;\r\n  margin-bottom: 5px;\r\n  font-size: 28px;\r\n}\r\n\r\n#header a.logo:hover\r\n{\r\n  color: #111;\r\n  text-decoration: none;\r\n}\r\n\r\n#header a.logo:hover i\r\n{\r\n  color: #111;\r\n  text-decoration: none;\r\n}\r\n\r\n.subheader a.button\r\n{\r\n  margin-top: 10px;\r\n  margin-right: 10px;\r\n  display: block;\r\n  padding: 7px 12px;\r\n  border-radius: 3px;\r\n  float:right;\r\n  color: #fff;\r\n  background: #508cbf;\r\n  font-weight: bold;\r\n  font-size: 12px;\r\n  text-decoration: none;\r\n}\r\n\r\n.subheader a.button.negative\r\n{\r\n  color: #999;\r\n  background: #bbb;\r\n}\r\n\r\n.subheader a.button:hover\r\n{\r\n  color: #508cbf;\r\n  background: #111;\r\n  text-decoration: none;\r\n}\r\n\r\n#header .search\r\n{\r\n  border-radius: 3px;\r\n  border: 1px solid #ddd;\r\n  margin: 10px;\r\n  height: 25px;\r\n  float:right;\r\n  text-align: right;\r\n  padding: 0px 3px;\r\n}\r\n\r\n\r\n#tags\r\n{\r\n  display: none;\r\n}\r\n\r\n#tags li, h5 span\r\n{\r\n  font-weight: bold;\r\n  color:#fff;\r\n  font-size: 20px;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  display: inline;\r\n  list-style-type: none;\r\n  padding: 2px;\r\n  margin: 0px;\r\n  border-radius: 4px;\r\n}\r\n\r\n.tag\r\n{\r\n  background: #b294bb;\r\n  color: #fff;\r\n  font-weight: bold;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  display: block;\r\n  float: left;\r\n  font-size: 12px;\r\n  padding: 2px 5px;\r\n  margin-left: 4px;\r\n  border-radius: 2px;\r\n}\r\n\r\n.badge\r\n{\r\n  margin: 4px;\r\n  width: 10px;\r\n  height: 10px;\r\n  float: left;\r\n  display: block;\r\n  border-radius: 10px;\r\n}\r\n\r\n.card .badge\r\n{\r\n  float: right;\r\n}\r\n", ""]);
 
 	// exports
 
@@ -36939,13 +36939,52 @@
 /* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
+	__webpack_require__(255)
 	module.exports = __webpack_require__(257)
 	module.exports.template = __webpack_require__(258)
 
 
 /***/ },
-/* 255 */,
-/* 256 */,
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(256);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(7)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./app.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./app.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(6)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".mdl-layout__header {\r\nbackground: #1d1f21;\r\n}\r\n\r\n.mdl-layout__header-row {\r\n  padding-left: 15px;\r\n}\r\n\r\n.mdl-layout__header-row .mdl-layout-title {\r\n  color :#bbb;\r\n  font-family: monospace;\r\n}", ""]);
+
+	// exports
+
+
+/***/ },
 /* 257 */
 /***/ function(module, exports) {
 
@@ -36959,7 +36998,7 @@
 /* 258 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\r\n    <header class=\"mdl-layout__header\">\r\n        <div class=\"mdl-layout__header-row\">\r\n          <span class=\"mdl-layout-title\">Code-Cards</span>\r\n          <div class=\"mdl-layout-spacer\"></div>\r\n          <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right\">\r\n            <label class=\"mdl-button mdl-js-button mdl-button--icon\" for=\"fixed-header-drawer-exp\">\r\n            <i class=\"material-icons\">search</i>\r\n            </label>\r\n            <div class=\"mdl-textfield__expandable-holder\">\r\n              <input v-model=\"search\" debounce=\"500\" class=\"mdl-textfield__input\" type=\"text\" name=\"sample\" id=\"fixed-header-drawer-exp\" />\r\n            </div>\r\n        </div>\r\n        </div>\r\n    </header>\r\n    <main class=\"mdl-layout__content\">\r\n        <div class=\"page-content\">\r\n            <router-view></router-view>\r\n        </div>\r\n    </main>\r\n    </div>";
+	module.exports = "<div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\r\n    <header class=\"mdl-layout__header\">\r\n        <div class=\"mdl-layout__header-row\">\r\n          <span class=\"mdl-layout-title\">code-cards</span>\r\n          <div class=\"mdl-layout-spacer\"></div>\r\n          <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right\">\r\n            <label class=\"mdl-button mdl-js-button mdl-button--icon\" for=\"fixed-header-drawer-exp\">\r\n            <i class=\"material-icons\">search</i>\r\n            </label>\r\n            <div class=\"mdl-textfield__expandable-holder\">\r\n              <input v-model=\"search\" debounce=\"500\" class=\"mdl-textfield__input\" type=\"text\" name=\"sample\" id=\"fixed-header-drawer-exp\" />\r\n            </div>\r\n        </div>\r\n        </div>\r\n    </header>\r\n    <main class=\"mdl-layout__content\">\r\n        <div class=\"page-content\">\r\n            <router-view></router-view>\r\n        </div>\r\n    </main>\r\n    </div>";
 
 /***/ },
 /* 259 */,
@@ -37120,11 +37159,14 @@
 					},
 					done: function() {
 						var vm = this;
+						var tags = this.tags.split(" ");
+						tags = $.map(tags, function(n) { return n.trim(' ').toUpperCase();});
+						tags = $.grep(tags, function(n) { return n != ''; });
 						var body = {
 							snippet: this.snippet,
 							title: this.title,
 							description: this.description,
-							tags: this.tags.split(" "),
+							tags: tags,
 							language: this.language
 						};
 						console.log(body);
@@ -37136,6 +37178,7 @@
 							  });
 						}
 						else {
+							tags.push(this.language.trim(' ').toUpperCase());
 							$.post('/api/cards', body)
 							  .done(function( data ) {
 									vm.$dispatch('route-go', '/')

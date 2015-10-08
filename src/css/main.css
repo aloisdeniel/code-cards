@@ -181,17 +181,6 @@ h5
   padding: 0px 3px;
 }
 
-/* Badges - Tags */
-.badge-0, .tag-0, .tag { background: #23ae59; }
-.badge-1, .tag-1 { background: #508cbf; }
-.badge-2, .tag-2 { background: #ff4954; }
-.badge-3, .tag-3 { background: #ff6240; }
-.badge-4, .tag-4 { background: #ffcd00; }
-.badge-5, .tag-5 { background: #7759BF; }
-.badge-6, .tag-6 { background: #15AEAC; }
-.badge-7, .tag-7 { background: #FFA43D; }
-.badge-8, .tag-8 { background: #a95e40; }
-.badge-9, .tag-9 { background: #6477c6; }
 
 #tags
 {
@@ -213,9 +202,13 @@ h5
 
 .tag
 {
+  background: #b294bb;
+  color: #fff;
+  font-weight: bold;
+  font-family: 'Source Sans Pro', sans-serif;
   display: block;
   float: left;
-  font-size: 10px;
+  font-size: 12px;
   padding: 2px 5px;
   margin-left: 4px;
   border-radius: 2px;

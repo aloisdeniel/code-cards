@@ -1,8 +1,26 @@
+<style>
+
+.mdl-layout__header {
+background: #1d1f21;
+}
+
+.mdl-layout__header-row {
+  padding-left: 15px;
+}
+
+.mdl-layout__header-row .mdl-layout-title {
+  color :#bbb;
+  font-family: monospace;
+}
+
+
+</style>
+
 <template>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">Code-Cards</span>
+          <span class="mdl-layout-title">code-cards</span>
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">

@@ -135,11 +135,14 @@ module.exports = {
 				},
 				done: function() {
 					var vm = this;
+					var tags = this.tags.split(" ");
+					tags = $.map(tags, function(n) { return n.trim(' ').toUpperCase();});
+					tags = $.grep(tags, function(n) { return n != ''; });
 					var body = {
 						snippet: this.snippet,
 						title: this.title,
 						description: this.description,
-						tags: this.tags.split(" "),
+						tags: tags,
 						language: this.language
 					};
 					console.log(body);
@@ -151,6 +154,7 @@ module.exports = {
 						  });
 					}
 					else {
+						tags.push(this.language.trim(' ').toUpperCase());
 						$.post('/api/cards', body)
 						  .done(function( data ) {
 								vm.$dispatch('route-go', '/')
