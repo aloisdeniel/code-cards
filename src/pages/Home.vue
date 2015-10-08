@@ -21,6 +21,10 @@
 </template>
 
 <script>
+var $ = require('jquery');
+var minigrid = require('minigrid');
+var hljs = require('highlight.js');
+
 module.exports = {
   props: {
     title: {type: String, default: 'Home' },

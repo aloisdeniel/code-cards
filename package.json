@@ -4,7 +4,9 @@
   "description": "An application for managing you snippets of code.",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --progress --colors",
+    "watch": "webpack-dev-server --progress --colors"
   },
   "repository": {
     "type": "git",
@@ -25,17 +27,31 @@
   "dependencies": {
     "commander": "^2.8.1",
     "extend": "^3.0.0",
+    "highlight.js": "^8.8.0",
     "joi": "^6.8.1",
+    "jquery": "^2.1.4",
     "koa": "^1.0.0",
     "koa-bodyparser": "^2.0.1",
     "koa-json": "^1.1.1",
     "koa-mount": "^1.3.0",
     "koa-route": "^2.4.2",
     "koa-static": "^1.4.9",
+    "minigrid": "^1.6.5",
     "nedb": "^1.2.1",
-    "tingodb": "^0.4.2"
+    "tingodb": "^0.4.2",
+    "vue": "^0.12.16",
+    "vue-router": "^0.6.2"
   },
   "bin": {
     "code-cards": "index.js"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "css-loader": "^0.19.0",
+    "html-loader": "^0.3.0",
+    "style-loader": "^0.12.4",
+    "template-html-loader": "0.0.3",
+    "vue-html-loader": "^1.0.0",
+    "vue-loader": "^3.0.4"
   }
 }

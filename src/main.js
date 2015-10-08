@@ -1,6 +1,14 @@
+// Styles
+
+require('./css/main.css')
+
+// Application
+
 var Vue = require('vue');
+var minigrid = require('minigrid');
 var VueRouter = require('vue-router');
 var HomePage = require('./pages/Home.vue')
+var CreatePage = require('./pages/Create.vue')
 
 var App = Vue.extend({});
 

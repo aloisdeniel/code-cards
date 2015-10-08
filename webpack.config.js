@@ -4,19 +4,18 @@ module.exports = {
   entry: "./src/main.js",
   output: {
     path: "./public",
-    filename: "build.js"
+    filename: "bundle.js"
   },
   module: {
     loaders: [
+      { 
+        test: /\.css$/, 
+        loader: "style!css"
+      },
       {
         test: /\.vue$/,
-        loader: vue.withLoaders({
-          // apply babel transform to all javascript
-          // inside *.vue files.
-          js: 'babel?optional[]=runtime'
-        })
+        loader: vue.withLoaders({})
       }
     ]
-  },
-  devtool: 'source-map'
+  }
 }
