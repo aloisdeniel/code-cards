@@ -1,10 +1,45 @@
+<style>
+    #add-button
+    {
+        position: absolute;
+        right: 40px;
+        bottom: 40px;
+        z-index: 999;
+    }
+</style>
+
 <template>
- <div id="header">
-    <input class="search" type="text" placeholder="Search by tags"></t>
-      <a class="logo" v-link="{ path: '/home' }"><i class="ion-scissors"></i> CODES-CARDS</a>
+
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">Code-Cards</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                    mdl-textfield--floating-label mdl-textfield--align-right">
+            <label class="mdl-button mdl-js-button mdl-button--icon"
+                for="fixed-header-drawer-exp">
+            <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+            <input class="mdl-textfield__input" type="text" name="sample"
+                    id="fixed-header-drawer-exp" />
+            </div>
+        </div>
+        </div>
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add-button">
+            <i class="material-icons">add</i>
+        </button>
+    </header>
+    <main class="mdl-layout__content">
+        <div class="page-content">
+            <router-view></router-view>
+        </div>
+    </main>
     </div>
 
-    <div id="content">
-      <router-view></router-view>
-    </div>
+
 </template>

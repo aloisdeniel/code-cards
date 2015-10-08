@@ -54,8 +54,8 @@
 	var Vue = __webpack_require__(9);
 	var VueRouter = __webpack_require__(76);
 	var HomePage = __webpack_require__(108);
-	var CreatePage = __webpack_require__(249);
-	var App = __webpack_require__(252);
+	var CreatePage = __webpack_require__(251);
+	var App = __webpack_require__(254);
 
 	Vue.use(VueRouter);
 
@@ -73,7 +73,7 @@
 	router.go('/home');
 
 	window.addEventListener('resize', function(){
-	  minigrid('.home-content', '.card', 10);
+	  minigrid('.home-content', '.mdl-card', 10);
 	});
 
 
@@ -115,7 +115,7 @@
 
 
 	// module
-	exports.push([module.id, "\r\nhtml, pre, body, code\r\n{\r\n  margin: 0px;\r\n  padding: 0px;\r\n}\r\n\r\ncode\r\n{\r\n  word-wrap:break-word;\r\n  font-size: 11px;\r\n}\r\n\r\n.card\r\n{\r\n  width: 500px;\r\n  page-break-inside: avoid;\r\n}\r\n\r\ncode.snippet\r\n{\r\n  display: none;\r\n}\r\n\r\npre, .snippet\r\n{\r\n  border-right: dashed 1px #ddd;\r\n  border-left: dashed 1px #ddd;\r\n  border-bottom: dashed 1px #ddd;\r\n}\r\n\r\nh2\r\n{\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  background: #222222;\r\n  color: #fefefe;\r\n  margin: 0;\r\n  padding: 8px;\r\n  font-size: 14px;\r\n}\r\n\r\np\r\n{\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  background: #ddd;\r\n  color: #555;\r\n  margin: 0;\r\n  padding: 8px;\r\n  font-size: 12px;\r\n}\r\n\r\nh5\r\n{\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  background: #eee;\r\n  color: #555;\r\n  margin: 0;\r\n  padding: 6px 4px ;\r\n  font-size: 12px;\r\n  text-align: right;\r\n}\r\n\r\n/* Create */\r\n\r\n.card.full\r\n{\r\n  margin: 1%;\r\n  width: 98%;\r\n}\r\n\r\n.card.full .snippet\r\n{\r\n  padding: 7px;\r\n}\r\n\r\n.card.full textarea\r\n{\r\n  resize:vertical ;\r\n}\r\n.card.full textarea, .card.full select, .card.full input\r\n{\r\n  width: 100%;\r\n}\r\n\r\n.card.full .snippet textarea\r\n{\r\n  height: 250px;\r\n}\r\n\r\n/* Header */\r\n\r\n#header\r\n{\r\n  height: 46px;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  width: 100%;\r\n  margin: 0px;\r\n  background: #f4f4f4;\r\n}\r\n\r\n.subheader\r\n{\r\n  height: 46px;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  width: 100%;\r\n  margin: 0px;\r\n  background: #ddd;\r\n}\r\n\r\n.subheader h1\r\n{\r\n  font-weight: normal;\r\n  font-size: 16px;\r\n  margin: 0px;\r\n  margin-left: 10px;\r\n  padding-top: 10px;\r\n  color: #888;\r\n}\r\n\r\n\r\n#header a.logo\r\n{\r\n  display: block;\r\n  float:left;\r\n  margin: 7px 11px;\r\n  color: #f4f4f4;\r\n  font-size: 22px;\r\n  text-decoration: none;\r\n}\r\n\r\n#header a.logo i\r\n{\r\n  color: #508cbf;\r\n  margin-right: 5px;\r\n  margin-bottom: 5px;\r\n  font-size: 28px;\r\n}\r\n\r\n#header a.logo:hover\r\n{\r\n  color: #111;\r\n  text-decoration: none;\r\n}\r\n\r\n#header a.logo:hover i\r\n{\r\n  color: #111;\r\n  text-decoration: none;\r\n}\r\n\r\n.subheader a.button\r\n{\r\n  margin-top: 10px;\r\n  margin-right: 10px;\r\n  display: block;\r\n  padding: 7px 12px;\r\n  border-radius: 3px;\r\n  float:right;\r\n  color: #fff;\r\n  background: #508cbf;\r\n  font-weight: bold;\r\n  font-size: 12px;\r\n  text-decoration: none;\r\n}\r\n\r\n.subheader a.button.negative\r\n{\r\n  color: #999;\r\n  background: #bbb;\r\n}\r\n\r\n.subheader a.button:hover\r\n{\r\n  color: #508cbf;\r\n  background: #111;\r\n  text-decoration: none;\r\n}\r\n\r\n#header .search\r\n{\r\n  border-radius: 3px;\r\n  border: 1px solid #ddd;\r\n  margin: 10px;\r\n  height: 25px;\r\n  float:right;\r\n  text-align: right;\r\n  padding: 0px 3px;\r\n}\r\n\r\n/* Badges - Tags */\r\n.badge-0, .tag-0, .tag { background: #23ae59; }\r\n.badge-1, .tag-1 { background: #508cbf; }\r\n.badge-2, .tag-2 { background: #ff4954; }\r\n.badge-3, .tag-3 { background: #ff6240; }\r\n.badge-4, .tag-4 { background: #ffcd00; }\r\n.badge-5, .tag-5 { background: #7759BF; }\r\n.badge-6, .tag-6 { background: #15AEAC; }\r\n.badge-7, .tag-7 { background: #FFA43D; }\r\n.badge-8, .tag-8 { background: #a95e40; }\r\n.badge-9, .tag-9 { background: #6477c6; }\r\n\r\n#tags\r\n{\r\n  display: none;\r\n}\r\n\r\n#tags li, h5 span\r\n{\r\n  font-weight: bold;\r\n  color:#fff;\r\n  font-size: 20px;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  display: inline;\r\n  list-style-type: none;\r\n  padding: 2px;\r\n  margin: 0px;\r\n  border-radius: 4px;\r\n}\r\n\r\n.tag\r\n{\r\n  display: block;\r\n  float: right;\r\n  font-size: 10px;\r\n  padding: 2px 5px;\r\n  margin-left: 4px;\r\n  border-radius: 2px;\r\n}\r\n\r\n.badge\r\n{\r\n  margin: 4px;\r\n  width: 10px;\r\n  height: 10px;\r\n  float: left;\r\n  display: block;\r\n  border-radius: 10px;\r\n}\r\n\r\n.card .badge\r\n{\r\n  float: right;\r\n}\r\n", ""]);
+	exports.push([module.id, "\r\nhtml, pre, body, code\r\n{\r\n  margin: 0px;\r\n  padding: 0px;\r\n}\r\n\r\ncode\r\n{\r\n  word-wrap:break-word;\r\n  font-size: 11px;\r\n}\r\n\r\n.card\r\n{\r\n  width: 500px;\r\n  page-break-inside: avoid;\r\n}\r\n\r\ncode.snippet\r\n{\r\n  display: none;\r\n}\r\n\r\nh2\r\n{\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  background: #222222;\r\n  color: #fefefe;\r\n  margin: 0;\r\n  padding: 8px;\r\n  font-size: 14px;\r\n}\r\n\r\np\r\n{\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  background: #ddd;\r\n  color: #555;\r\n  margin: 0;\r\n  padding: 8px;\r\n  font-size: 12px;\r\n}\r\n\r\nh5\r\n{\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  background: #eee;\r\n  color: #555;\r\n  margin: 0;\r\n  padding: 6px 4px ;\r\n  font-size: 12px;\r\n  text-align: right;\r\n}\r\n\r\n/* Create */\r\n\r\n.card.full\r\n{\r\n  margin: 1%;\r\n  width: 98%;\r\n}\r\n\r\n.card.full .snippet\r\n{\r\n  padding: 7px;\r\n}\r\n\r\n.card.full textarea\r\n{\r\n  resize:vertical ;\r\n}\r\n.card.full textarea, .card.full select, .card.full input\r\n{\r\n  width: 100%;\r\n}\r\n\r\n.card.full .snippet textarea\r\n{\r\n  height: 250px;\r\n}\r\n\r\n/* Header */\r\n\r\n#header\r\n{\r\n  height: 46px;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  width: 100%;\r\n  margin: 0px;\r\n  background: #f4f4f4;\r\n}\r\n\r\n.subheader\r\n{\r\n  height: 46px;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  width: 100%;\r\n  margin: 0px;\r\n  background: #ddd;\r\n}\r\n\r\n.subheader h1\r\n{\r\n  font-weight: normal;\r\n  font-size: 16px;\r\n  margin: 0px;\r\n  margin-left: 10px;\r\n  padding-top: 10px;\r\n  color: #888;\r\n}\r\n\r\n\r\n#header a.logo\r\n{\r\n  display: block;\r\n  float:left;\r\n  margin: 7px 11px;\r\n  color: #f4f4f4;\r\n  font-size: 22px;\r\n  text-decoration: none;\r\n}\r\n\r\n#header a.logo i\r\n{\r\n  color: #508cbf;\r\n  margin-right: 5px;\r\n  margin-bottom: 5px;\r\n  font-size: 28px;\r\n}\r\n\r\n#header a.logo:hover\r\n{\r\n  color: #111;\r\n  text-decoration: none;\r\n}\r\n\r\n#header a.logo:hover i\r\n{\r\n  color: #111;\r\n  text-decoration: none;\r\n}\r\n\r\n.subheader a.button\r\n{\r\n  margin-top: 10px;\r\n  margin-right: 10px;\r\n  display: block;\r\n  padding: 7px 12px;\r\n  border-radius: 3px;\r\n  float:right;\r\n  color: #fff;\r\n  background: #508cbf;\r\n  font-weight: bold;\r\n  font-size: 12px;\r\n  text-decoration: none;\r\n}\r\n\r\n.subheader a.button.negative\r\n{\r\n  color: #999;\r\n  background: #bbb;\r\n}\r\n\r\n.subheader a.button:hover\r\n{\r\n  color: #508cbf;\r\n  background: #111;\r\n  text-decoration: none;\r\n}\r\n\r\n#header .search\r\n{\r\n  border-radius: 3px;\r\n  border: 1px solid #ddd;\r\n  margin: 10px;\r\n  height: 25px;\r\n  float:right;\r\n  text-align: right;\r\n  padding: 0px 3px;\r\n}\r\n\r\n/* Badges - Tags */\r\n.badge-0, .tag-0, .tag { background: #23ae59; }\r\n.badge-1, .tag-1 { background: #508cbf; }\r\n.badge-2, .tag-2 { background: #ff4954; }\r\n.badge-3, .tag-3 { background: #ff6240; }\r\n.badge-4, .tag-4 { background: #ffcd00; }\r\n.badge-5, .tag-5 { background: #7759BF; }\r\n.badge-6, .tag-6 { background: #15AEAC; }\r\n.badge-7, .tag-7 { background: #FFA43D; }\r\n.badge-8, .tag-8 { background: #a95e40; }\r\n.badge-9, .tag-9 { background: #6477c6; }\r\n\r\n#tags\r\n{\r\n  display: none;\r\n}\r\n\r\n#tags li, h5 span\r\n{\r\n  font-weight: bold;\r\n  color:#fff;\r\n  font-size: 20px;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  display: inline;\r\n  list-style-type: none;\r\n  padding: 2px;\r\n  margin: 0px;\r\n  border-radius: 4px;\r\n}\r\n\r\n.tag\r\n{\r\n  display: block;\r\n  float: left;\r\n  font-size: 10px;\r\n  padding: 2px 5px;\r\n  margin-left: 4px;\r\n  border-radius: 2px;\r\n}\r\n\r\n.badge\r\n{\r\n  margin: 4px;\r\n  width: 10px;\r\n  height: 10px;\r\n  float: left;\r\n  display: block;\r\n  border-radius: 10px;\r\n}\r\n\r\n.card .badge\r\n{\r\n  float: right;\r\n}\r\n", ""]);
 
 	// exports
 
@@ -13605,17 +13605,58 @@
 /* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(109)
-	module.exports.template = __webpack_require__(248)
+	__webpack_require__(109)
+	module.exports = __webpack_require__(111)
+	module.exports.template = __webpack_require__(250)
 
 
 /***/ },
 /* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(110);
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(110);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(7)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./home.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./home.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 110 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(6)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".mdl-card {\r\n  width: 512px;\r\n}\r\n\r\n.mdl-card__title {\r\n  background-color: #ebebeb;\r\n}\r\n\r\n.mdl-card__supporting-text p {\r\n  padding: 0px;\r\n  margin: 0px;\r\n  background: transparent;\r\n  font-size: 12px;\r\n}\r\n\r\n.mdl-card__supporting-text h4 {\r\n  padding: 0px;\r\n  margin: 0px;\r\n  font-size: 17px;\r\n}\r\n\r\n .mdl-card__menu {\r\n  color: #fff;\r\n}\r\n\r\n.mdl-card__actions button {\r\n  float: right;\r\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 111 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(112);
 	var minigrid = __webpack_require__(8);
-	var hljs = __webpack_require__(111);
+	var hljs = __webpack_require__(113);
 
 	module.exports = {
 	  props: {
@@ -13632,7 +13673,7 @@
 	        $('pre code').each(function(i,b){
 	          hljs.highlightBlock(b);
 	        })
-	      minigrid('.home-content', '.card', 10);
+	      minigrid('.home-content', '.mdl-card', 10);
 	    }
 	  },
 	  methods: {
@@ -13650,7 +13691,7 @@
 	};
 
 /***/ },
-/* 110 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -22866,151 +22907,151 @@
 
 
 /***/ },
-/* 111 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var hljs = __webpack_require__(112);
+	var hljs = __webpack_require__(114);
 
-	hljs.registerLanguage('1c', __webpack_require__(113));
-	hljs.registerLanguage('accesslog', __webpack_require__(114));
-	hljs.registerLanguage('actionscript', __webpack_require__(115));
-	hljs.registerLanguage('apache', __webpack_require__(116));
-	hljs.registerLanguage('applescript', __webpack_require__(117));
-	hljs.registerLanguage('armasm', __webpack_require__(118));
-	hljs.registerLanguage('xml', __webpack_require__(119));
-	hljs.registerLanguage('asciidoc', __webpack_require__(120));
-	hljs.registerLanguage('aspectj', __webpack_require__(121));
-	hljs.registerLanguage('autohotkey', __webpack_require__(122));
-	hljs.registerLanguage('autoit', __webpack_require__(123));
-	hljs.registerLanguage('avrasm', __webpack_require__(124));
-	hljs.registerLanguage('axapta', __webpack_require__(125));
-	hljs.registerLanguage('bash', __webpack_require__(126));
-	hljs.registerLanguage('brainfuck', __webpack_require__(127));
-	hljs.registerLanguage('cal', __webpack_require__(128));
-	hljs.registerLanguage('capnproto', __webpack_require__(129));
-	hljs.registerLanguage('ceylon', __webpack_require__(130));
-	hljs.registerLanguage('clojure', __webpack_require__(131));
-	hljs.registerLanguage('clojure-repl', __webpack_require__(132));
-	hljs.registerLanguage('cmake', __webpack_require__(133));
-	hljs.registerLanguage('coffeescript', __webpack_require__(134));
-	hljs.registerLanguage('cpp', __webpack_require__(135));
-	hljs.registerLanguage('crystal', __webpack_require__(136));
-	hljs.registerLanguage('cs', __webpack_require__(137));
-	hljs.registerLanguage('css', __webpack_require__(138));
-	hljs.registerLanguage('d', __webpack_require__(139));
-	hljs.registerLanguage('markdown', __webpack_require__(140));
-	hljs.registerLanguage('dart', __webpack_require__(141));
-	hljs.registerLanguage('delphi', __webpack_require__(142));
-	hljs.registerLanguage('diff', __webpack_require__(143));
-	hljs.registerLanguage('django', __webpack_require__(144));
-	hljs.registerLanguage('dns', __webpack_require__(145));
-	hljs.registerLanguage('dockerfile', __webpack_require__(146));
-	hljs.registerLanguage('dos', __webpack_require__(147));
-	hljs.registerLanguage('dust', __webpack_require__(148));
-	hljs.registerLanguage('elixir', __webpack_require__(149));
-	hljs.registerLanguage('elm', __webpack_require__(150));
-	hljs.registerLanguage('ruby', __webpack_require__(151));
-	hljs.registerLanguage('erb', __webpack_require__(152));
-	hljs.registerLanguage('erlang-repl', __webpack_require__(153));
-	hljs.registerLanguage('erlang', __webpack_require__(154));
-	hljs.registerLanguage('fix', __webpack_require__(155));
-	hljs.registerLanguage('fortran', __webpack_require__(156));
-	hljs.registerLanguage('fsharp', __webpack_require__(157));
-	hljs.registerLanguage('gams', __webpack_require__(158));
-	hljs.registerLanguage('gcode', __webpack_require__(159));
-	hljs.registerLanguage('gherkin', __webpack_require__(160));
-	hljs.registerLanguage('glsl', __webpack_require__(161));
-	hljs.registerLanguage('go', __webpack_require__(162));
-	hljs.registerLanguage('golo', __webpack_require__(163));
-	hljs.registerLanguage('gradle', __webpack_require__(164));
-	hljs.registerLanguage('groovy', __webpack_require__(165));
-	hljs.registerLanguage('haml', __webpack_require__(166));
-	hljs.registerLanguage('handlebars', __webpack_require__(167));
-	hljs.registerLanguage('haskell', __webpack_require__(168));
-	hljs.registerLanguage('haxe', __webpack_require__(169));
-	hljs.registerLanguage('http', __webpack_require__(170));
-	hljs.registerLanguage('inform7', __webpack_require__(171));
-	hljs.registerLanguage('ini', __webpack_require__(172));
-	hljs.registerLanguage('irpf90', __webpack_require__(173));
-	hljs.registerLanguage('java', __webpack_require__(174));
-	hljs.registerLanguage('javascript', __webpack_require__(175));
-	hljs.registerLanguage('json', __webpack_require__(176));
-	hljs.registerLanguage('julia', __webpack_require__(177));
-	hljs.registerLanguage('kotlin', __webpack_require__(178));
-	hljs.registerLanguage('lasso', __webpack_require__(179));
-	hljs.registerLanguage('less', __webpack_require__(180));
-	hljs.registerLanguage('lisp', __webpack_require__(181));
-	hljs.registerLanguage('livecodeserver', __webpack_require__(182));
-	hljs.registerLanguage('livescript', __webpack_require__(183));
-	hljs.registerLanguage('lua', __webpack_require__(184));
-	hljs.registerLanguage('makefile', __webpack_require__(185));
-	hljs.registerLanguage('mathematica', __webpack_require__(186));
-	hljs.registerLanguage('matlab', __webpack_require__(187));
-	hljs.registerLanguage('mel', __webpack_require__(188));
-	hljs.registerLanguage('mercury', __webpack_require__(189));
-	hljs.registerLanguage('mizar', __webpack_require__(190));
-	hljs.registerLanguage('perl', __webpack_require__(191));
-	hljs.registerLanguage('mojolicious', __webpack_require__(192));
-	hljs.registerLanguage('monkey', __webpack_require__(193));
-	hljs.registerLanguage('nginx', __webpack_require__(194));
-	hljs.registerLanguage('nimrod', __webpack_require__(195));
-	hljs.registerLanguage('nix', __webpack_require__(196));
-	hljs.registerLanguage('nsis', __webpack_require__(197));
-	hljs.registerLanguage('objectivec', __webpack_require__(198));
-	hljs.registerLanguage('ocaml', __webpack_require__(199));
-	hljs.registerLanguage('openscad', __webpack_require__(200));
-	hljs.registerLanguage('oxygene', __webpack_require__(201));
-	hljs.registerLanguage('parser3', __webpack_require__(202));
-	hljs.registerLanguage('pf', __webpack_require__(203));
-	hljs.registerLanguage('php', __webpack_require__(204));
-	hljs.registerLanguage('powershell', __webpack_require__(205));
-	hljs.registerLanguage('processing', __webpack_require__(206));
-	hljs.registerLanguage('profile', __webpack_require__(207));
-	hljs.registerLanguage('prolog', __webpack_require__(208));
-	hljs.registerLanguage('protobuf', __webpack_require__(209));
-	hljs.registerLanguage('puppet', __webpack_require__(210));
-	hljs.registerLanguage('python', __webpack_require__(211));
-	hljs.registerLanguage('q', __webpack_require__(212));
-	hljs.registerLanguage('r', __webpack_require__(213));
-	hljs.registerLanguage('rib', __webpack_require__(214));
-	hljs.registerLanguage('roboconf', __webpack_require__(215));
-	hljs.registerLanguage('rsl', __webpack_require__(216));
-	hljs.registerLanguage('ruleslanguage', __webpack_require__(217));
-	hljs.registerLanguage('rust', __webpack_require__(218));
-	hljs.registerLanguage('scala', __webpack_require__(219));
-	hljs.registerLanguage('scheme', __webpack_require__(220));
-	hljs.registerLanguage('scilab', __webpack_require__(221));
-	hljs.registerLanguage('scss', __webpack_require__(222));
-	hljs.registerLanguage('smali', __webpack_require__(223));
-	hljs.registerLanguage('smalltalk', __webpack_require__(224));
-	hljs.registerLanguage('sml', __webpack_require__(225));
-	hljs.registerLanguage('sql', __webpack_require__(226));
-	hljs.registerLanguage('stata', __webpack_require__(227));
-	hljs.registerLanguage('step21', __webpack_require__(228));
-	hljs.registerLanguage('stylus', __webpack_require__(229));
-	hljs.registerLanguage('swift', __webpack_require__(230));
-	hljs.registerLanguage('tcl', __webpack_require__(231));
-	hljs.registerLanguage('tex', __webpack_require__(232));
-	hljs.registerLanguage('thrift', __webpack_require__(233));
-	hljs.registerLanguage('tp', __webpack_require__(234));
-	hljs.registerLanguage('twig', __webpack_require__(235));
-	hljs.registerLanguage('typescript', __webpack_require__(236));
-	hljs.registerLanguage('vala', __webpack_require__(237));
-	hljs.registerLanguage('vbnet', __webpack_require__(238));
-	hljs.registerLanguage('vbscript', __webpack_require__(239));
-	hljs.registerLanguage('vbscript-html', __webpack_require__(240));
-	hljs.registerLanguage('verilog', __webpack_require__(241));
-	hljs.registerLanguage('vhdl', __webpack_require__(242));
-	hljs.registerLanguage('vim', __webpack_require__(243));
-	hljs.registerLanguage('x86asm', __webpack_require__(244));
-	hljs.registerLanguage('xl', __webpack_require__(245));
-	hljs.registerLanguage('xquery', __webpack_require__(246));
-	hljs.registerLanguage('zephir', __webpack_require__(247));
+	hljs.registerLanguage('1c', __webpack_require__(115));
+	hljs.registerLanguage('accesslog', __webpack_require__(116));
+	hljs.registerLanguage('actionscript', __webpack_require__(117));
+	hljs.registerLanguage('apache', __webpack_require__(118));
+	hljs.registerLanguage('applescript', __webpack_require__(119));
+	hljs.registerLanguage('armasm', __webpack_require__(120));
+	hljs.registerLanguage('xml', __webpack_require__(121));
+	hljs.registerLanguage('asciidoc', __webpack_require__(122));
+	hljs.registerLanguage('aspectj', __webpack_require__(123));
+	hljs.registerLanguage('autohotkey', __webpack_require__(124));
+	hljs.registerLanguage('autoit', __webpack_require__(125));
+	hljs.registerLanguage('avrasm', __webpack_require__(126));
+	hljs.registerLanguage('axapta', __webpack_require__(127));
+	hljs.registerLanguage('bash', __webpack_require__(128));
+	hljs.registerLanguage('brainfuck', __webpack_require__(129));
+	hljs.registerLanguage('cal', __webpack_require__(130));
+	hljs.registerLanguage('capnproto', __webpack_require__(131));
+	hljs.registerLanguage('ceylon', __webpack_require__(132));
+	hljs.registerLanguage('clojure', __webpack_require__(133));
+	hljs.registerLanguage('clojure-repl', __webpack_require__(134));
+	hljs.registerLanguage('cmake', __webpack_require__(135));
+	hljs.registerLanguage('coffeescript', __webpack_require__(136));
+	hljs.registerLanguage('cpp', __webpack_require__(137));
+	hljs.registerLanguage('crystal', __webpack_require__(138));
+	hljs.registerLanguage('cs', __webpack_require__(139));
+	hljs.registerLanguage('css', __webpack_require__(140));
+	hljs.registerLanguage('d', __webpack_require__(141));
+	hljs.registerLanguage('markdown', __webpack_require__(142));
+	hljs.registerLanguage('dart', __webpack_require__(143));
+	hljs.registerLanguage('delphi', __webpack_require__(144));
+	hljs.registerLanguage('diff', __webpack_require__(145));
+	hljs.registerLanguage('django', __webpack_require__(146));
+	hljs.registerLanguage('dns', __webpack_require__(147));
+	hljs.registerLanguage('dockerfile', __webpack_require__(148));
+	hljs.registerLanguage('dos', __webpack_require__(149));
+	hljs.registerLanguage('dust', __webpack_require__(150));
+	hljs.registerLanguage('elixir', __webpack_require__(151));
+	hljs.registerLanguage('elm', __webpack_require__(152));
+	hljs.registerLanguage('ruby', __webpack_require__(153));
+	hljs.registerLanguage('erb', __webpack_require__(154));
+	hljs.registerLanguage('erlang-repl', __webpack_require__(155));
+	hljs.registerLanguage('erlang', __webpack_require__(156));
+	hljs.registerLanguage('fix', __webpack_require__(157));
+	hljs.registerLanguage('fortran', __webpack_require__(158));
+	hljs.registerLanguage('fsharp', __webpack_require__(159));
+	hljs.registerLanguage('gams', __webpack_require__(160));
+	hljs.registerLanguage('gcode', __webpack_require__(161));
+	hljs.registerLanguage('gherkin', __webpack_require__(162));
+	hljs.registerLanguage('glsl', __webpack_require__(163));
+	hljs.registerLanguage('go', __webpack_require__(164));
+	hljs.registerLanguage('golo', __webpack_require__(165));
+	hljs.registerLanguage('gradle', __webpack_require__(166));
+	hljs.registerLanguage('groovy', __webpack_require__(167));
+	hljs.registerLanguage('haml', __webpack_require__(168));
+	hljs.registerLanguage('handlebars', __webpack_require__(169));
+	hljs.registerLanguage('haskell', __webpack_require__(170));
+	hljs.registerLanguage('haxe', __webpack_require__(171));
+	hljs.registerLanguage('http', __webpack_require__(172));
+	hljs.registerLanguage('inform7', __webpack_require__(173));
+	hljs.registerLanguage('ini', __webpack_require__(174));
+	hljs.registerLanguage('irpf90', __webpack_require__(175));
+	hljs.registerLanguage('java', __webpack_require__(176));
+	hljs.registerLanguage('javascript', __webpack_require__(177));
+	hljs.registerLanguage('json', __webpack_require__(178));
+	hljs.registerLanguage('julia', __webpack_require__(179));
+	hljs.registerLanguage('kotlin', __webpack_require__(180));
+	hljs.registerLanguage('lasso', __webpack_require__(181));
+	hljs.registerLanguage('less', __webpack_require__(182));
+	hljs.registerLanguage('lisp', __webpack_require__(183));
+	hljs.registerLanguage('livecodeserver', __webpack_require__(184));
+	hljs.registerLanguage('livescript', __webpack_require__(185));
+	hljs.registerLanguage('lua', __webpack_require__(186));
+	hljs.registerLanguage('makefile', __webpack_require__(187));
+	hljs.registerLanguage('mathematica', __webpack_require__(188));
+	hljs.registerLanguage('matlab', __webpack_require__(189));
+	hljs.registerLanguage('mel', __webpack_require__(190));
+	hljs.registerLanguage('mercury', __webpack_require__(191));
+	hljs.registerLanguage('mizar', __webpack_require__(192));
+	hljs.registerLanguage('perl', __webpack_require__(193));
+	hljs.registerLanguage('mojolicious', __webpack_require__(194));
+	hljs.registerLanguage('monkey', __webpack_require__(195));
+	hljs.registerLanguage('nginx', __webpack_require__(196));
+	hljs.registerLanguage('nimrod', __webpack_require__(197));
+	hljs.registerLanguage('nix', __webpack_require__(198));
+	hljs.registerLanguage('nsis', __webpack_require__(199));
+	hljs.registerLanguage('objectivec', __webpack_require__(200));
+	hljs.registerLanguage('ocaml', __webpack_require__(201));
+	hljs.registerLanguage('openscad', __webpack_require__(202));
+	hljs.registerLanguage('oxygene', __webpack_require__(203));
+	hljs.registerLanguage('parser3', __webpack_require__(204));
+	hljs.registerLanguage('pf', __webpack_require__(205));
+	hljs.registerLanguage('php', __webpack_require__(206));
+	hljs.registerLanguage('powershell', __webpack_require__(207));
+	hljs.registerLanguage('processing', __webpack_require__(208));
+	hljs.registerLanguage('profile', __webpack_require__(209));
+	hljs.registerLanguage('prolog', __webpack_require__(210));
+	hljs.registerLanguage('protobuf', __webpack_require__(211));
+	hljs.registerLanguage('puppet', __webpack_require__(212));
+	hljs.registerLanguage('python', __webpack_require__(213));
+	hljs.registerLanguage('q', __webpack_require__(214));
+	hljs.registerLanguage('r', __webpack_require__(215));
+	hljs.registerLanguage('rib', __webpack_require__(216));
+	hljs.registerLanguage('roboconf', __webpack_require__(217));
+	hljs.registerLanguage('rsl', __webpack_require__(218));
+	hljs.registerLanguage('ruleslanguage', __webpack_require__(219));
+	hljs.registerLanguage('rust', __webpack_require__(220));
+	hljs.registerLanguage('scala', __webpack_require__(221));
+	hljs.registerLanguage('scheme', __webpack_require__(222));
+	hljs.registerLanguage('scilab', __webpack_require__(223));
+	hljs.registerLanguage('scss', __webpack_require__(224));
+	hljs.registerLanguage('smali', __webpack_require__(225));
+	hljs.registerLanguage('smalltalk', __webpack_require__(226));
+	hljs.registerLanguage('sml', __webpack_require__(227));
+	hljs.registerLanguage('sql', __webpack_require__(228));
+	hljs.registerLanguage('stata', __webpack_require__(229));
+	hljs.registerLanguage('step21', __webpack_require__(230));
+	hljs.registerLanguage('stylus', __webpack_require__(231));
+	hljs.registerLanguage('swift', __webpack_require__(232));
+	hljs.registerLanguage('tcl', __webpack_require__(233));
+	hljs.registerLanguage('tex', __webpack_require__(234));
+	hljs.registerLanguage('thrift', __webpack_require__(235));
+	hljs.registerLanguage('tp', __webpack_require__(236));
+	hljs.registerLanguage('twig', __webpack_require__(237));
+	hljs.registerLanguage('typescript', __webpack_require__(238));
+	hljs.registerLanguage('vala', __webpack_require__(239));
+	hljs.registerLanguage('vbnet', __webpack_require__(240));
+	hljs.registerLanguage('vbscript', __webpack_require__(241));
+	hljs.registerLanguage('vbscript-html', __webpack_require__(242));
+	hljs.registerLanguage('verilog', __webpack_require__(243));
+	hljs.registerLanguage('vhdl', __webpack_require__(244));
+	hljs.registerLanguage('vim', __webpack_require__(245));
+	hljs.registerLanguage('x86asm', __webpack_require__(246));
+	hljs.registerLanguage('xl', __webpack_require__(247));
+	hljs.registerLanguage('xquery', __webpack_require__(248));
+	hljs.registerLanguage('zephir', __webpack_require__(249));
 
 	module.exports = hljs;
 
 /***/ },
-/* 112 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -23787,7 +23828,7 @@
 
 
 /***/ },
-/* 113 */
+/* 115 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs){
@@ -23877,7 +23918,7 @@
 	};
 
 /***/ },
-/* 114 */
+/* 116 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -23919,7 +23960,7 @@
 	};
 
 /***/ },
-/* 115 */
+/* 117 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -23998,7 +24039,7 @@
 	};
 
 /***/ },
-/* 116 */
+/* 118 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -24048,7 +24089,7 @@
 	};
 
 /***/ },
-/* 117 */
+/* 119 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -24149,7 +24190,7 @@
 	};
 
 /***/ },
-/* 118 */
+/* 120 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -24245,7 +24286,7 @@
 	};
 
 /***/ },
-/* 119 */
+/* 121 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -24352,7 +24393,7 @@
 	};
 
 /***/ },
-/* 120 */
+/* 122 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -24548,7 +24589,7 @@
 	};
 
 /***/ },
-/* 121 */
+/* 123 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -24690,7 +24731,7 @@
 	};
 
 /***/ },
-/* 122 */
+/* 124 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -24756,7 +24797,7 @@
 	};
 
 /***/ },
-/* 123 */
+/* 125 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -26514,7 +26555,7 @@
 	};
 
 /***/ },
-/* 124 */
+/* 126 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -26580,7 +26621,7 @@
 	};
 
 /***/ },
-/* 125 */
+/* 127 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -26615,7 +26656,7 @@
 	};
 
 /***/ },
-/* 126 */
+/* 128 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -26695,7 +26736,7 @@
 	};
 
 /***/ },
-/* 127 */
+/* 129 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs){
@@ -26736,7 +26777,7 @@
 	};
 
 /***/ },
-/* 128 */
+/* 130 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -26819,7 +26860,7 @@
 	};
 
 /***/ },
-/* 129 */
+/* 131 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -26872,7 +26913,7 @@
 	};
 
 /***/ },
-/* 130 */
+/* 132 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -26944,7 +26985,7 @@
 	};
 
 /***/ },
-/* 131 */
+/* 133 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -27045,7 +27086,7 @@
 	};
 
 /***/ },
-/* 132 */
+/* 134 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -27064,7 +27105,7 @@
 	};
 
 /***/ },
-/* 133 */
+/* 135 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -27107,7 +27148,7 @@
 	};
 
 /***/ },
-/* 134 */
+/* 136 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -27252,7 +27293,7 @@
 	};
 
 /***/ },
-/* 135 */
+/* 137 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -27397,7 +27438,7 @@
 	};
 
 /***/ },
-/* 136 */
+/* 138 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -27554,7 +27595,7 @@
 	};
 
 /***/ },
-/* 137 */
+/* 139 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -27677,7 +27718,7 @@
 	};
 
 /***/ },
-/* 138 */
+/* 140 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -27784,7 +27825,7 @@
 	};
 
 /***/ },
-/* 139 */
+/* 141 */
 /***/ function(module, exports) {
 
 	module.exports = /**
@@ -28046,7 +28087,7 @@
 	};
 
 /***/ },
-/* 140 */
+/* 142 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -28152,7 +28193,7 @@
 	};
 
 /***/ },
-/* 141 */
+/* 143 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -28257,7 +28298,7 @@
 	};
 
 /***/ },
-/* 142 */
+/* 144 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -28328,7 +28369,7 @@
 	};
 
 /***/ },
-/* 143 */
+/* 145 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -28372,7 +28413,7 @@
 	};
 
 /***/ },
-/* 144 */
+/* 146 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -28426,7 +28467,7 @@
 	};
 
 /***/ },
-/* 145 */
+/* 147 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -28458,7 +28499,7 @@
 	};
 
 /***/ },
-/* 146 */
+/* 148 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -28497,7 +28538,7 @@
 	};
 
 /***/ },
-/* 147 */
+/* 149 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -28549,7 +28590,7 @@
 	};
 
 /***/ },
-/* 148 */
+/* 150 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -28588,7 +28629,7 @@
 	};
 
 /***/ },
-/* 149 */
+/* 151 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -28694,7 +28735,7 @@
 	};
 
 /***/ },
-/* 150 */
+/* 152 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -28784,7 +28825,7 @@
 	};
 
 /***/ },
-/* 151 */
+/* 153 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -28957,7 +28998,7 @@
 	};
 
 /***/ },
-/* 152 */
+/* 154 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -28976,7 +29017,7 @@
 	};
 
 /***/ },
-/* 153 */
+/* 155 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -29028,7 +29069,7 @@
 	};
 
 /***/ },
-/* 154 */
+/* 156 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -29184,7 +29225,7 @@
 	};
 
 /***/ },
-/* 155 */
+/* 157 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -29217,7 +29258,7 @@
 	};
 
 /***/ },
-/* 156 */
+/* 158 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -29291,7 +29332,7 @@
 	};
 
 /***/ },
-/* 157 */
+/* 159 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -29353,7 +29394,7 @@
 	};
 
 /***/ },
-/* 158 */
+/* 160 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -29394,7 +29435,7 @@
 	};
 
 /***/ },
-/* 159 */
+/* 161 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -29471,7 +29512,7 @@
 	};
 
 /***/ },
-/* 160 */
+/* 162 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -29508,7 +29549,7 @@
 	};
 
 /***/ },
-/* 161 */
+/* 163 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -29606,7 +29647,7 @@
 	};
 
 /***/ },
-/* 162 */
+/* 164 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -29649,7 +29690,7 @@
 	};
 
 /***/ },
-/* 163 */
+/* 165 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -29677,7 +29718,7 @@
 	};
 
 /***/ },
-/* 164 */
+/* 166 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -29716,7 +29757,7 @@
 	};
 
 /***/ },
-/* 165 */
+/* 167 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -29808,7 +29849,7 @@
 	};
 
 /***/ },
-/* 166 */
+/* 168 */
 /***/ function(module, exports) {
 
 	module.exports = // TODO support filter tags like :javascript, support inline HTML
@@ -29920,7 +29961,7 @@
 	};
 
 /***/ },
-/* 167 */
+/* 169 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -29957,7 +29998,7 @@
 	};
 
 /***/ },
-/* 168 */
+/* 170 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30085,7 +30126,7 @@
 	};
 
 /***/ },
-/* 169 */
+/* 171 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30150,7 +30191,7 @@
 	};
 
 /***/ },
-/* 170 */
+/* 172 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30189,7 +30230,7 @@
 	};
 
 /***/ },
-/* 171 */
+/* 173 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30251,7 +30292,7 @@
 	};
 
 /***/ },
-/* 172 */
+/* 174 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30315,7 +30356,7 @@
 	};
 
 /***/ },
-/* 173 */
+/* 175 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30394,7 +30435,7 @@
 	};
 
 /***/ },
-/* 174 */
+/* 176 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30498,7 +30539,7 @@
 	};
 
 /***/ },
-/* 175 */
+/* 177 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30614,7 +30655,7 @@
 	};
 
 /***/ },
-/* 176 */
+/* 178 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30656,7 +30697,7 @@
 	};
 
 /***/ },
-/* 177 */
+/* 179 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30821,7 +30862,7 @@
 	};
 
 /***/ },
-/* 178 */
+/* 180 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -30926,7 +30967,7 @@
 	};
 
 /***/ },
-/* 179 */
+/* 181 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -31116,7 +31157,7 @@
 	};
 
 /***/ },
-/* 180 */
+/* 182 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -31257,7 +31298,7 @@
 	};
 
 /***/ },
-/* 181 */
+/* 183 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -31368,7 +31409,7 @@
 	};
 
 /***/ },
-/* 182 */
+/* 184 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -31530,7 +31571,7 @@
 	};
 
 /***/ },
-/* 183 */
+/* 185 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -31685,7 +31726,7 @@
 	};
 
 /***/ },
-/* 184 */
+/* 186 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -31745,7 +31786,7 @@
 	};
 
 /***/ },
-/* 185 */
+/* 187 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -31795,7 +31836,7 @@
 	};
 
 /***/ },
-/* 186 */
+/* 188 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -31858,7 +31899,7 @@
 	};
 
 /***/ },
-/* 187 */
+/* 189 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -31953,7 +31994,7 @@
 	};
 
 /***/ },
-/* 188 */
+/* 190 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32187,7 +32228,7 @@
 	};
 
 /***/ },
-/* 189 */
+/* 191 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32280,7 +32321,7 @@
 	};
 
 /***/ },
-/* 190 */
+/* 192 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32303,7 +32344,7 @@
 	};
 
 /***/ },
-/* 191 */
+/* 193 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32464,7 +32505,7 @@
 	};
 
 /***/ },
-/* 192 */
+/* 194 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32493,7 +32534,7 @@
 	};
 
 /***/ },
-/* 193 */
+/* 195 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32575,7 +32616,7 @@
 	};
 
 /***/ },
-/* 194 */
+/* 196 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32661,7 +32702,7 @@
 	};
 
 /***/ },
-/* 195 */
+/* 197 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32717,7 +32758,7 @@
 	};
 
 /***/ },
-/* 196 */
+/* 198 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32772,7 +32813,7 @@
 	};
 
 /***/ },
-/* 197 */
+/* 199 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32864,7 +32905,7 @@
 	};
 
 /***/ },
-/* 198 */
+/* 200 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32947,7 +32988,7 @@
 	};
 
 /***/ },
-/* 199 */
+/* 201 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33022,7 +33063,7 @@
 	};
 
 /***/ },
-/* 200 */
+/* 202 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33084,7 +33125,7 @@
 	};
 
 /***/ },
-/* 201 */
+/* 203 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33157,7 +33198,7 @@
 	};
 
 /***/ },
-/* 202 */
+/* 204 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33209,7 +33250,7 @@
 	};
 
 /***/ },
-/* 203 */
+/* 205 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33265,7 +33306,7 @@
 	};
 
 /***/ },
-/* 204 */
+/* 206 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33394,7 +33435,7 @@
 	};
 
 /***/ },
-/* 205 */
+/* 207 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33446,7 +33487,7 @@
 	};
 
 /***/ },
-/* 206 */
+/* 208 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33498,7 +33539,7 @@
 	};
 
 /***/ },
-/* 207 */
+/* 209 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33544,7 +33585,7 @@
 	};
 
 /***/ },
-/* 208 */
+/* 210 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33637,7 +33678,7 @@
 	};
 
 /***/ },
-/* 209 */
+/* 211 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33678,7 +33719,7 @@
 	};
 
 /***/ },
-/* 210 */
+/* 212 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33790,7 +33831,7 @@
 	};
 
 /***/ },
-/* 211 */
+/* 213 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33879,7 +33920,7 @@
 	};
 
 /***/ },
-/* 212 */
+/* 214 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33906,7 +33947,7 @@
 	};
 
 /***/ },
-/* 213 */
+/* 215 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33980,7 +34021,7 @@
 	};
 
 /***/ },
-/* 214 */
+/* 216 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34011,7 +34052,7 @@
 	};
 
 /***/ },
-/* 215 */
+/* 217 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34075,7 +34116,7 @@
 	};
 
 /***/ },
-/* 216 */
+/* 218 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34116,7 +34157,7 @@
 	};
 
 /***/ },
-/* 217 */
+/* 219 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34181,7 +34222,7 @@
 	};
 
 /***/ },
-/* 218 */
+/* 220 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34271,7 +34312,7 @@
 	};
 
 /***/ },
-/* 219 */
+/* 221 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34338,7 +34379,7 @@
 	};
 
 /***/ },
-/* 220 */
+/* 222 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34464,7 +34505,7 @@
 	};
 
 /***/ },
-/* 221 */
+/* 223 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34523,7 +34564,7 @@
 	};
 
 /***/ },
-/* 222 */
+/* 224 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34644,7 +34685,7 @@
 	};
 
 /***/ },
-/* 223 */
+/* 225 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34731,7 +34772,7 @@
 	};
 
 /***/ },
-/* 224 */
+/* 226 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34788,7 +34829,7 @@
 	};
 
 /***/ },
-/* 225 */
+/* 227 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34857,7 +34898,7 @@
 	};
 
 /***/ },
-/* 226 */
+/* 228 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35021,7 +35062,7 @@
 	};
 
 /***/ },
-/* 227 */
+/* 229 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35063,7 +35104,7 @@
 	};
 
 /***/ },
-/* 228 */
+/* 230 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35119,7 +35160,7 @@
 	};
 
 /***/ },
-/* 229 */
+/* 231 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35566,7 +35607,7 @@
 	};
 
 /***/ },
-/* 230 */
+/* 232 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35685,7 +35726,7 @@
 	};
 
 /***/ },
-/* 231 */
+/* 233 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35751,7 +35792,7 @@
 	};
 
 /***/ },
-/* 232 */
+/* 234 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35810,7 +35851,7 @@
 	};
 
 /***/ },
-/* 233 */
+/* 235 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35849,7 +35890,7 @@
 	};
 
 /***/ },
-/* 234 */
+/* 236 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35937,7 +35978,7 @@
 	};
 
 /***/ },
-/* 235 */
+/* 237 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35998,7 +36039,7 @@
 	};
 
 /***/ },
-/* 236 */
+/* 238 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36100,7 +36141,7 @@
 	};
 
 /***/ },
-/* 237 */
+/* 239 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36159,7 +36200,7 @@
 	};
 
 /***/ },
-/* 238 */
+/* 240 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36219,7 +36260,7 @@
 	};
 
 /***/ },
-/* 239 */
+/* 241 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36262,7 +36303,7 @@
 	};
 
 /***/ },
-/* 240 */
+/* 242 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36278,7 +36319,7 @@
 	};
 
 /***/ },
-/* 241 */
+/* 243 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36332,7 +36373,7 @@
 	};
 
 /***/ },
-/* 242 */
+/* 244 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36392,7 +36433,7 @@
 	};
 
 /***/ },
-/* 243 */
+/* 245 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36459,7 +36500,7 @@
 	};
 
 /***/ },
-/* 244 */
+/* 246 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36599,7 +36640,7 @@
 	};
 
 /***/ },
-/* 245 */
+/* 247 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36690,7 +36731,7 @@
 	};
 
 /***/ },
-/* 246 */
+/* 248 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36767,7 +36808,7 @@
 	};
 
 /***/ },
-/* 247 */
+/* 249 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36878,21 +36919,21 @@
 	};
 
 /***/ },
-/* 248 */
+/* 250 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"subheader\">\r\n    <a class=\"button\" v-link=\"{ path: '/create' }\"><i class=\"ion-plus-round\"></i></a>\r\n    <h1>{{title}}</h1>\r\n  </div>\r\n  <div class=\"home-content\">\r\n    <div class=\"card\" v-repeat=\"cards\">\r\n      <h2>\r\n        <span v-repeat=\"tags\" class=\"tag\">{{$value}}</span>\r\n        {{title}}\r\n      </h2>\r\n      <p v-if=\"description\">{{description}}</p>\r\n      <pre>\r\n        <code class=\"{{language}}\" v-transition=\"highlight\">\r\n          {{snippet}}\r\n        </code>\r\n      </pre>\r\n    </div>\r\n  </div>";
+	module.exports = "<div class=\"home-content\">\r\n    <div class=\"demo-card-square mdl-card mdl-shadow--2dp\" v-repeat=\"cards\">\r\n      <pre class=\"mdl-card__title mdl-card--expand\">\r\n          <code class=\"{{language}}\" v-transition=\"highlight\">{{snippet}}</code>\r\n      </pre>\r\n      <div class=\"mdl-card__supporting-text\">\r\n        <h4>{{title}}</h4>\r\n        <p>{{description}}</p>\r\n      </div>\r\n      <div class=\"mdl-card__actions mdl-card--border\">\r\n      \r\n        <span v-repeat=\"tags\" class=\"tag\">{{$value}}</span>\r\n          \r\n        <button id=\"menu-top-right-{{$index}}\" class=\"mdl-button mdl-js-button mdl-button--icon\">\r\n          <i class=\"material-icons\">more_vert</i>\r\n        </button>\r\n        \r\n        <ul class=\"mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect\" for=\"menu-lower-right-{{$index}}\">\r\n          <li class=\"mdl-menu__item\">Edit</li>\r\n          <li class=\"mdl-menu__item\">Delete</li>\r\n        </ul>\r\n        \r\n      </div>\r\n    </div>\r\n   </div>";
 
 /***/ },
-/* 249 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(250)
-	module.exports.template = __webpack_require__(251)
+	module.exports = __webpack_require__(252)
+	module.exports.template = __webpack_require__(253)
 
 
 /***/ },
-/* 250 */
+/* 252 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -36921,23 +36962,64 @@
 	};
 
 /***/ },
-/* 251 */
+/* 253 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"subheader\">\r\n\t\t<a class=\"button\"><i class=\"ion-checkmark-round\"></i></a>\r\n\t\t<a class=\"button negative\" v-link=\"{ path: '/home' }\"><i class=\"ion-close-round\"></i></a>\r\n\t\t<h1>{{title}}</h1>\r\n\t</div>\r\n\t<div class=\"card full\">\r\n\t\t<h2><input type=\"text\" placeholder=\"Title\"></input></h2>\r\n\t\t<p><textarea placeholder=\"Description\"></textarea></p>\r\n\t\t<p><input type=\"text\" placeholder=\"Tags (separated by spaces)\"></input></p>\r\n\t\t<p>\r\n      <select name=\"language\">\r\n        <option v-repeat=\"languages\" value=\"{{$value}}\">{{$value}}</option>\r\n      </select>\r\n    </p>\r\n\t\t<div class=\"snippet\"><textarea placeholder=\"Code\"></textarea></div>\r\n\t</div>";
 
 /***/ },
-/* 252 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports.template = __webpack_require__(253)
+	__webpack_require__(255)
+	module.exports.template = __webpack_require__(257)
 
 
 /***/ },
-/* 253 */
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(256);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(7)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./app.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./app.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(6)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "#add-button\r\n    {\r\n        position: absolute;\r\n        right: 40px;\r\n        bottom: 40px;\r\n        z-index: 999;\r\n    }", ""]);
+
+	// exports
+
+
+/***/ },
+/* 257 */
 /***/ function(module, exports) {
 
-	module.exports = "<div id=\"header\">\r\n    <input class=\"search\" type=\"text\" placeholder=\"Search by tags\"></t>\r\n      <a class=\"logo\" v-link=\"{ path: '/home' }\"><i class=\"ion-scissors\"></i> CODES-CARDS</a>\r\n    </div>\r\n\r\n    <div id=\"content\">\r\n      <router-view></router-view>\r\n    </div>";
+	module.exports = "<div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\r\n    <header class=\"mdl-layout__header\">\r\n        <div class=\"mdl-layout__header-row\">\r\n        <!-- Title -->\r\n        <span class=\"mdl-layout-title\">Code-Cards</span>\r\n        <!-- Add spacer, to align navigation to the right -->\r\n        <div class=\"mdl-layout-spacer\"></div>\r\n        \r\n        <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--expandable\r\n                    mdl-textfield--floating-label mdl-textfield--align-right\">\r\n            <label class=\"mdl-button mdl-js-button mdl-button--icon\"\r\n                for=\"fixed-header-drawer-exp\">\r\n            <i class=\"material-icons\">search</i>\r\n            </label>\r\n            <div class=\"mdl-textfield__expandable-holder\">\r\n            <input class=\"mdl-textfield__input\" type=\"text\" name=\"sample\"\r\n                    id=\"fixed-header-drawer-exp\" />\r\n            </div>\r\n        </div>\r\n        </div>\r\n        <button class=\"mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent\" id=\"add-button\">\r\n            <i class=\"material-icons\">add</i>\r\n        </button>\r\n    </header>\r\n    <main class=\"mdl-layout__content\">\r\n        <div class=\"page-content\">\r\n            <router-view></router-view>\r\n        </div>\r\n    </main>\r\n    </div>";
 
 /***/ }
 /******/ ]);

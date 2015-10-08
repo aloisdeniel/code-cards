@@ -22,13 +22,6 @@ code.snippet
   display: none;
 }
 
-pre, .snippet
-{
-  border-right: dashed 1px #ddd;
-  border-left: dashed 1px #ddd;
-  border-bottom: dashed 1px #ddd;
-}
-
 h2
 {
   font-family: 'Source Sans Pro', sans-serif;
@@ -220,7 +213,7 @@ h5
 .tag
 {
   display: block;
-  float: right;
+  float: left;
   font-size: 10px;
   padding: 2px 5px;
   margin-left: 4px;

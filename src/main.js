@@ -27,5 +27,5 @@ router.start(app,'#app')
 router.go('/home');
 
 window.addEventListener('resize', function(){
-  minigrid('.home-content', '.card', 10);
+  minigrid('.home-content', '.mdl-card', 10);
 });
