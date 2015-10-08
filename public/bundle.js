@@ -46,6 +46,7 @@
 
 	// Styles
 
+	__webpack_require__(261)
 	__webpack_require__(4)
 
 	// Application
@@ -54,7 +55,7 @@
 	var Vue = __webpack_require__(9);
 	var VueRouter = __webpack_require__(76);
 	var HomePage = __webpack_require__(108);
-	var CreatePage = __webpack_require__(251);
+	var EditPage = __webpack_require__(266);
 	var App = __webpack_require__(254);
 
 	Vue.use(VueRouter);
@@ -62,18 +63,23 @@
 	var router = new VueRouter();
 
 	router.map({
-	  '/home' : { component: HomePage },
-	  '/create' : { component: CreatePage }
+	  '/' : { name: 'home', component: HomePage },
+	  '/create' : { name: 'create', component: EditPage},
+	  '/:id/edit' : {name: 'edit', component: EditPage}
 	})
 
 
 	var app = Vue.extend(App);
-	router.start(app,'#app')
 
-	router.go('/home');
+
+
+	router.start(app,'#app')
+	router.app.$on('route-go', function (path) {
+	  router.go(path);
+	})
 
 	window.addEventListener('resize', function(){
-	  minigrid('.home-content', '.mdl-card', 10);
+	  minigrid('.home-content', '.mdl-card', 15);
 	});
 
 
@@ -115,7 +121,7 @@
 
 
 	// module
-	exports.push([module.id, "\r\nhtml, pre, body, code\r\n{\r\n  margin: 0px;\r\n  padding: 0px;\r\n}\r\n\r\ncode\r\n{\r\n  word-wrap:break-word;\r\n  font-size: 11px;\r\n}\r\n\r\n.card\r\n{\r\n  width: 500px;\r\n  page-break-inside: avoid;\r\n}\r\n\r\ncode.snippet\r\n{\r\n  display: none;\r\n}\r\n\r\nh2\r\n{\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  background: #222222;\r\n  color: #fefefe;\r\n  margin: 0;\r\n  padding: 8px;\r\n  font-size: 14px;\r\n}\r\n\r\np\r\n{\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  background: #ddd;\r\n  color: #555;\r\n  margin: 0;\r\n  padding: 8px;\r\n  font-size: 12px;\r\n}\r\n\r\nh5\r\n{\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  background: #eee;\r\n  color: #555;\r\n  margin: 0;\r\n  padding: 6px 4px ;\r\n  font-size: 12px;\r\n  text-align: right;\r\n}\r\n\r\n/* Create */\r\n\r\n.card.full\r\n{\r\n  margin: 1%;\r\n  width: 98%;\r\n}\r\n\r\n.card.full .snippet\r\n{\r\n  padding: 7px;\r\n}\r\n\r\n.card.full textarea\r\n{\r\n  resize:vertical ;\r\n}\r\n.card.full textarea, .card.full select, .card.full input\r\n{\r\n  width: 100%;\r\n}\r\n\r\n.card.full .snippet textarea\r\n{\r\n  height: 250px;\r\n}\r\n\r\n/* Header */\r\n\r\n#header\r\n{\r\n  height: 46px;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  width: 100%;\r\n  margin: 0px;\r\n  background: #f4f4f4;\r\n}\r\n\r\n.subheader\r\n{\r\n  height: 46px;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  width: 100%;\r\n  margin: 0px;\r\n  background: #ddd;\r\n}\r\n\r\n.subheader h1\r\n{\r\n  font-weight: normal;\r\n  font-size: 16px;\r\n  margin: 0px;\r\n  margin-left: 10px;\r\n  padding-top: 10px;\r\n  color: #888;\r\n}\r\n\r\n\r\n#header a.logo\r\n{\r\n  display: block;\r\n  float:left;\r\n  margin: 7px 11px;\r\n  color: #f4f4f4;\r\n  font-size: 22px;\r\n  text-decoration: none;\r\n}\r\n\r\n#header a.logo i\r\n{\r\n  color: #508cbf;\r\n  margin-right: 5px;\r\n  margin-bottom: 5px;\r\n  font-size: 28px;\r\n}\r\n\r\n#header a.logo:hover\r\n{\r\n  color: #111;\r\n  text-decoration: none;\r\n}\r\n\r\n#header a.logo:hover i\r\n{\r\n  color: #111;\r\n  text-decoration: none;\r\n}\r\n\r\n.subheader a.button\r\n{\r\n  margin-top: 10px;\r\n  margin-right: 10px;\r\n  display: block;\r\n  padding: 7px 12px;\r\n  border-radius: 3px;\r\n  float:right;\r\n  color: #fff;\r\n  background: #508cbf;\r\n  font-weight: bold;\r\n  font-size: 12px;\r\n  text-decoration: none;\r\n}\r\n\r\n.subheader a.button.negative\r\n{\r\n  color: #999;\r\n  background: #bbb;\r\n}\r\n\r\n.subheader a.button:hover\r\n{\r\n  color: #508cbf;\r\n  background: #111;\r\n  text-decoration: none;\r\n}\r\n\r\n#header .search\r\n{\r\n  border-radius: 3px;\r\n  border: 1px solid #ddd;\r\n  margin: 10px;\r\n  height: 25px;\r\n  float:right;\r\n  text-align: right;\r\n  padding: 0px 3px;\r\n}\r\n\r\n/* Badges - Tags */\r\n.badge-0, .tag-0, .tag { background: #23ae59; }\r\n.badge-1, .tag-1 { background: #508cbf; }\r\n.badge-2, .tag-2 { background: #ff4954; }\r\n.badge-3, .tag-3 { background: #ff6240; }\r\n.badge-4, .tag-4 { background: #ffcd00; }\r\n.badge-5, .tag-5 { background: #7759BF; }\r\n.badge-6, .tag-6 { background: #15AEAC; }\r\n.badge-7, .tag-7 { background: #FFA43D; }\r\n.badge-8, .tag-8 { background: #a95e40; }\r\n.badge-9, .tag-9 { background: #6477c6; }\r\n\r\n#tags\r\n{\r\n  display: none;\r\n}\r\n\r\n#tags li, h5 span\r\n{\r\n  font-weight: bold;\r\n  color:#fff;\r\n  font-size: 20px;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  display: inline;\r\n  list-style-type: none;\r\n  padding: 2px;\r\n  margin: 0px;\r\n  border-radius: 4px;\r\n}\r\n\r\n.tag\r\n{\r\n  display: block;\r\n  float: left;\r\n  font-size: 10px;\r\n  padding: 2px 5px;\r\n  margin-left: 4px;\r\n  border-radius: 2px;\r\n}\r\n\r\n.badge\r\n{\r\n  margin: 4px;\r\n  width: 10px;\r\n  height: 10px;\r\n  float: left;\r\n  display: block;\r\n  border-radius: 10px;\r\n}\r\n\r\n.card .badge\r\n{\r\n  float: right;\r\n}\r\n", ""]);
+	exports.push([module.id, "\r\nhtml, pre, body, code\r\n{\r\n  margin: 0px;\r\n  padding: 0px;\r\n  background-color: #f5f5f5;\r\n}\r\n\r\ncode\r\n{\r\n  word-wrap:break-word;\r\n  font-size: 11px;\r\n}\r\n\r\n.card\r\n{\r\n  width: 500px;\r\n  page-break-inside: avoid;\r\n}\r\n\r\ncode.snippet\r\n{\r\n  display: none;\r\n}\r\n\r\nh2\r\n{\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  background: #222222;\r\n  color: #fefefe;\r\n  margin: 0;\r\n  padding: 8px;\r\n  font-size: 14px;\r\n}\r\n\r\np\r\n{\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  background: #ddd;\r\n  color: #555;\r\n  margin: 0;\r\n  padding: 8px;\r\n  font-size: 12px;\r\n}\r\n\r\nh5\r\n{\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  background: #eee;\r\n  color: #555;\r\n  margin: 0;\r\n  padding: 6px 4px ;\r\n  font-size: 12px;\r\n  text-align: right;\r\n}\r\n\r\n/* Create */\r\n\r\n.card.full\r\n{\r\n  margin: 1%;\r\n  width: 98%;\r\n}\r\n\r\n.card.full .snippet\r\n{\r\n  padding: 7px;\r\n}\r\n\r\n.card.full textarea\r\n{\r\n  resize:vertical ;\r\n}\r\n.card.full textarea, .card.full select, .card.full input\r\n{\r\n  width: 100%;\r\n}\r\n\r\n.card.full .snippet textarea\r\n{\r\n  height: 250px;\r\n}\r\n\r\n/* Header */\r\n\r\n#header\r\n{\r\n  height: 46px;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  width: 100%;\r\n  margin: 0px;\r\n  background: #f4f4f4;\r\n}\r\n\r\n.subheader\r\n{\r\n  height: 46px;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  width: 100%;\r\n  margin: 0px;\r\n  background: #ddd;\r\n}\r\n\r\n.subheader h1\r\n{\r\n  font-weight: normal;\r\n  font-size: 16px;\r\n  margin: 0px;\r\n  margin-left: 10px;\r\n  padding-top: 10px;\r\n  color: #888;\r\n}\r\n\r\n\r\n#header a.logo\r\n{\r\n  display: block;\r\n  float:left;\r\n  margin: 7px 11px;\r\n  color: #f4f4f4;\r\n  font-size: 22px;\r\n  text-decoration: none;\r\n}\r\n\r\n#header a.logo i\r\n{\r\n  color: #508cbf;\r\n  margin-right: 5px;\r\n  margin-bottom: 5px;\r\n  font-size: 28px;\r\n}\r\n\r\n#header a.logo:hover\r\n{\r\n  color: #111;\r\n  text-decoration: none;\r\n}\r\n\r\n#header a.logo:hover i\r\n{\r\n  color: #111;\r\n  text-decoration: none;\r\n}\r\n\r\n.subheader a.button\r\n{\r\n  margin-top: 10px;\r\n  margin-right: 10px;\r\n  display: block;\r\n  padding: 7px 12px;\r\n  border-radius: 3px;\r\n  float:right;\r\n  color: #fff;\r\n  background: #508cbf;\r\n  font-weight: bold;\r\n  font-size: 12px;\r\n  text-decoration: none;\r\n}\r\n\r\n.subheader a.button.negative\r\n{\r\n  color: #999;\r\n  background: #bbb;\r\n}\r\n\r\n.subheader a.button:hover\r\n{\r\n  color: #508cbf;\r\n  background: #111;\r\n  text-decoration: none;\r\n}\r\n\r\n#header .search\r\n{\r\n  border-radius: 3px;\r\n  border: 1px solid #ddd;\r\n  margin: 10px;\r\n  height: 25px;\r\n  float:right;\r\n  text-align: right;\r\n  padding: 0px 3px;\r\n}\r\n\r\n/* Badges - Tags */\r\n.badge-0, .tag-0, .tag { background: #23ae59; }\r\n.badge-1, .tag-1 { background: #508cbf; }\r\n.badge-2, .tag-2 { background: #ff4954; }\r\n.badge-3, .tag-3 { background: #ff6240; }\r\n.badge-4, .tag-4 { background: #ffcd00; }\r\n.badge-5, .tag-5 { background: #7759BF; }\r\n.badge-6, .tag-6 { background: #15AEAC; }\r\n.badge-7, .tag-7 { background: #FFA43D; }\r\n.badge-8, .tag-8 { background: #a95e40; }\r\n.badge-9, .tag-9 { background: #6477c6; }\r\n\r\n#tags\r\n{\r\n  display: none;\r\n}\r\n\r\n#tags li, h5 span\r\n{\r\n  font-weight: bold;\r\n  color:#fff;\r\n  font-size: 20px;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  display: inline;\r\n  list-style-type: none;\r\n  padding: 2px;\r\n  margin: 0px;\r\n  border-radius: 4px;\r\n}\r\n\r\n.tag\r\n{\r\n  display: block;\r\n  float: left;\r\n  font-size: 10px;\r\n  padding: 2px 5px;\r\n  margin-left: 4px;\r\n  border-radius: 2px;\r\n}\r\n\r\n.badge\r\n{\r\n  margin: 4px;\r\n  width: 10px;\r\n  height: 10px;\r\n  float: left;\r\n  display: block;\r\n  border-radius: 10px;\r\n}\r\n\r\n.card .badge\r\n{\r\n  float: right;\r\n}\r\n", ""]);
 
 	// exports
 
@@ -13645,7 +13651,7 @@
 
 
 	// module
-	exports.push([module.id, ".mdl-card {\r\n  width: 512px;\r\n}\r\n\r\n.mdl-card__title {\r\n  background-color: #ebebeb;\r\n}\r\n\r\n.mdl-card__supporting-text p {\r\n  padding: 0px;\r\n  margin: 0px;\r\n  background: transparent;\r\n  font-size: 12px;\r\n}\r\n\r\n.mdl-card__supporting-text h4 {\r\n  padding: 0px;\r\n  margin: 0px;\r\n  font-size: 17px;\r\n}\r\n\r\n .mdl-card__menu {\r\n  color: #fff;\r\n}\r\n\r\n.mdl-card__actions button {\r\n  float: right;\r\n}", ""]);
+	exports.push([module.id, ".action-bar\r\n{\r\n    position: absolute;\r\n    right: 40px;\r\n    bottom: 40px;\r\n    z-index: 999;\r\n}\r\n\r\n.mdl-card {\r\n  width: 512px;\r\n  min-height: 0px;\r\n}\r\n\r\n.mdl-card__title {\r\n  background-color: #1d1f21;\r\n}\r\n\r\n.mdl-card__supporting-text p {\r\n  padding: 0px;\r\n  margin: 0px;\r\n  background: transparent;\r\n  font-size: 12px;\r\n}\r\n\r\n.mdl-card__supporting-text h4 {\r\n  padding: 0px;\r\n  margin: 0px;\r\n  font-size: 17px;\r\n}\r\n\r\n .mdl-card__menu {\r\n  color: #fff;\r\n}\r\n\r\n.mdl-card__actions a {\r\n  float: right;\r\n}", ""]);
 
 	// exports
 
@@ -13660,7 +13666,6 @@
 
 	module.exports = {
 	  props: {
-	    title: {type: String, default: 'Home' },
 	    cards: {type: Array, default: () => [] },
 	    tags: {type: Array, default: () => [] },
 	  },
@@ -13669,11 +13674,10 @@
 	  },
 	  watch: {
 	    cards: function(val,oldVal) {
-	      console.log(' update watch')
 	        $('pre code').each(function(i,b){
 	          hljs.highlightBlock(b);
 	        })
-	      minigrid('.home-content', '.mdl-card', 10);
+	      minigrid('.home-content', '.mdl-card', 15);
 	    }
 	  },
 	  methods: {
@@ -13681,11 +13685,15 @@
 	     * Loads distant cards and tags from api.
 	     */
 	    update: function() {
-	      console.log('start update')
 	      var vm = this;
 	      $.get('/api/cards', function(data){
 	        vm.cards = data.cards;
 	      });
+	    },
+
+	    edit: function(card){
+	      console.log(card)
+	        this.$dispatch('route-go', '/'+card._id+'/edit');
 	    }
 	  }
 	};
@@ -36922,67 +36930,47 @@
 /* 250 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"home-content\">\r\n    <div class=\"demo-card-square mdl-card mdl-shadow--2dp\" v-repeat=\"cards\">\r\n      <pre class=\"mdl-card__title mdl-card--expand\">\r\n          <code class=\"{{language}}\" v-transition=\"highlight\">{{snippet}}</code>\r\n      </pre>\r\n      <div class=\"mdl-card__supporting-text\">\r\n        <h4>{{title}}</h4>\r\n        <p>{{description}}</p>\r\n      </div>\r\n      <div class=\"mdl-card__actions mdl-card--border\">\r\n      \r\n        <span v-repeat=\"tags\" class=\"tag\">{{$value}}</span>\r\n          \r\n        <button id=\"menu-top-right-{{$index}}\" class=\"mdl-button mdl-js-button mdl-button--icon\">\r\n          <i class=\"material-icons\">more_vert</i>\r\n        </button>\r\n        \r\n        <ul class=\"mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect\" for=\"menu-lower-right-{{$index}}\">\r\n          <li class=\"mdl-menu__item\">Edit</li>\r\n          <li class=\"mdl-menu__item\">Delete</li>\r\n        </ul>\r\n        \r\n      </div>\r\n    </div>\r\n   </div>";
+	module.exports = "<div class=\"home-content\">\r\n      <div class=\"action-bar\">\r\n      <a class=\"mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent\" v-link=\"{ path: '/create'}\">\r\n          <i class=\"material-icons\">add</i>\r\n      </a>\r\n\r\n      </div>\r\n\r\n      <div class=\"mdl-card mdl-shadow--2dp\" v-repeat=\"card in cards\">\r\n        <pre class=\"mdl-card__title\" v-if=\"card.snippet\">\r\n            <code class=\"{{card.language}}\" v-transition=\"highlight\">{{card.snippet}}</code>\r\n        </pre>\r\n        <div class=\"mdl-card__supporting-text\">\r\n          <h4 v-if=\"card.title\">{{card.title}}</h4>\r\n          <p v-if=\"card.description\">{{card.description}}</p>\r\n        </div>\r\n        <div class=\"mdl-card__actions mdl-card--border\">\r\n\r\n          <span v-repeat=\"card.tags\" class=\"tag\">{{$value}}</span>\r\n\r\n          <a v-on='click: edit(card)' class=\"mdl-button mdl-js-button mdl-button--icon\">\r\n            <i class=\"material-icons\">more_vert</i>\r\n          </a>\r\n\r\n        </div>\r\n      </div>\r\n   </div>";
 
 /***/ },
-/* 251 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(252)
-	module.exports.template = __webpack_require__(253)
-
-
-/***/ },
-/* 252 */
-/***/ function(module, exports) {
-
-	module.exports = {
-	  props: {
-	      title: {type: String, default: 'Create a new card' },
-	      languages : {type: Array, default: () => [
-	        'xml',
-	        'cs',
-	        'bash',
-	        'cmake',
-	        'coffeescript',
-	        'cpp',
-	        'css',
-	        'go',
-	        'gradle',
-	        'java',
-	        'json',
-	        'javascript',
-	        'objectivec',
-	        'powershell',
-	        'sql',
-	        'swift',
-	        'typescript'
-	      ]}
-	    }
-	};
-
-/***/ },
-/* 253 */
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"subheader\">\r\n\t\t<a class=\"button\"><i class=\"ion-checkmark-round\"></i></a>\r\n\t\t<a class=\"button negative\" v-link=\"{ path: '/home' }\"><i class=\"ion-close-round\"></i></a>\r\n\t\t<h1>{{title}}</h1>\r\n\t</div>\r\n\t<div class=\"card full\">\r\n\t\t<h2><input type=\"text\" placeholder=\"Title\"></input></h2>\r\n\t\t<p><textarea placeholder=\"Description\"></textarea></p>\r\n\t\t<p><input type=\"text\" placeholder=\"Tags (separated by spaces)\"></input></p>\r\n\t\t<p>\r\n      <select name=\"language\">\r\n        <option v-repeat=\"languages\" value=\"{{$value}}\">{{$value}}</option>\r\n      </select>\r\n    </p>\r\n\t\t<div class=\"snippet\"><textarea placeholder=\"Code\"></textarea></div>\r\n\t</div>";
-
-/***/ },
+/* 251 */,
+/* 252 */,
+/* 253 */,
 /* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(255)
-	module.exports.template = __webpack_require__(257)
+	module.exports = __webpack_require__(257)
+	module.exports.template = __webpack_require__(258)
 
 
 /***/ },
-/* 255 */
+/* 255 */,
+/* 256 */,
+/* 257 */
+/***/ function(module, exports) {
+
+	module.exports = {
+	  data: {
+	    search : ""
+	  }
+	}
+
+/***/ },
+/* 258 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\r\n    <header class=\"mdl-layout__header\">\r\n        <div class=\"mdl-layout__header-row\">\r\n          <span class=\"mdl-layout-title\">Code-Cards</span>\r\n          <div class=\"mdl-layout-spacer\"></div>\r\n          <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right\">\r\n            <label class=\"mdl-button mdl-js-button mdl-button--icon\" for=\"fixed-header-drawer-exp\">\r\n            <i class=\"material-icons\">search</i>\r\n            </label>\r\n            <div class=\"mdl-textfield__expandable-holder\">\r\n              <input v-model=\"search\" debounce=\"500\" class=\"mdl-textfield__input\" type=\"text\" name=\"sample\" id=\"fixed-header-drawer-exp\" />\r\n            </div>\r\n        </div>\r\n        </div>\r\n    </header>\r\n    <main class=\"mdl-layout__content\">\r\n        <div class=\"page-content\">\r\n            <router-view></router-view>\r\n        </div>\r\n    </main>\r\n    </div>";
+
+/***/ },
+/* 259 */,
+/* 260 */,
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(256);
+	var content = __webpack_require__(262);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(7)(content, {});
@@ -36991,8 +36979,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./app.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./app.vue");
+			module.hot.accept("!!./../../css-loader/index.js!./tomorrow-night.css", function() {
+				var newContent = require("!!./../../css-loader/index.js!./tomorrow-night.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -37002,7 +36990,7 @@
 	}
 
 /***/ },
-/* 256 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(6)();
@@ -37010,16 +36998,158 @@
 
 
 	// module
-	exports.push([module.id, "#add-button\r\n    {\r\n        position: absolute;\r\n        right: 40px;\r\n        bottom: 40px;\r\n        z-index: 999;\r\n    }", ""]);
+	exports.push([module.id, "/* Tomorrow Night Theme */\n/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */\n/* Original theme - https://github.com/chriskempson/tomorrow-theme */\n/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */\n\n/* Tomorrow Comment */\n.hljs-comment {\n  color: #969896;\n}\n\n/* Tomorrow Red */\n.hljs-variable,\n.hljs-attribute,\n.hljs-tag,\n.hljs-regexp,\n.ruby .hljs-constant,\n.xml .hljs-tag .hljs-title,\n.xml .hljs-pi,\n.xml .hljs-doctype,\n.html .hljs-doctype,\n.css .hljs-id,\n.css .hljs-class,\n.css .hljs-pseudo {\n  color: #cc6666;\n}\n\n/* Tomorrow Orange */\n.hljs-number,\n.hljs-preprocessor,\n.hljs-pragma,\n.hljs-built_in,\n.hljs-literal,\n.hljs-params,\n.hljs-constant {\n  color: #de935f;\n}\n\n/* Tomorrow Yellow */\n.ruby .hljs-class .hljs-title,\n.css .hljs-rule .hljs-attribute {\n  color: #f0c674;\n}\n\n/* Tomorrow Green */\n.hljs-string,\n.hljs-value,\n.hljs-inheritance,\n.hljs-header,\n.hljs-name,\n.ruby .hljs-symbol,\n.xml .hljs-cdata {\n  color: #b5bd68;\n}\n\n/* Tomorrow Aqua */\n.hljs-title,\n.css .hljs-hexcolor {\n  color: #8abeb7;\n}\n\n/* Tomorrow Blue */\n.hljs-function,\n.python .hljs-decorator,\n.python .hljs-title,\n.ruby .hljs-function .hljs-title,\n.ruby .hljs-title .hljs-keyword,\n.perl .hljs-sub,\n.javascript .hljs-title,\n.coffeescript .hljs-title {\n  color: #81a2be;\n}\n\n/* Tomorrow Purple */\n.hljs-keyword,\n.javascript .hljs-function {\n  color: #b294bb;\n}\n\n.hljs {\n  display: block;\n  overflow-x: auto;\n  background: #1d1f21;\n  color: #c5c8c6;\n  padding: 0.5em;\n  -webkit-text-size-adjust: none;\n}\n\n.coffeescript .javascript,\n.javascript .xml,\n.tex .hljs-formula,\n.xml .javascript,\n.xml .vbscript,\n.xml .css,\n.xml .hljs-cdata {\n  opacity: 0.5;\n}\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 257 */
+/* 263 */,
+/* 264 */,
+/* 265 */,
+/* 266 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(267)
+	module.exports = __webpack_require__(269)
+	module.exports.template = __webpack_require__(270)
+
+
+/***/ },
+/* 267 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(268);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(7)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./edit.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./edit.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(6)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".create-action-bar .right\r\n{\r\n    float: right;\r\n}\r\n\t.create-action-bar\r\n\t{\r\n\t\tmargin: auto;\r\n\t\twidth: 512px;\r\n\t}\r\n\r\n\t.create-card\r\n\t{\r\n\t\tmargin: 5% auto 2% auto;\r\n\t}\r\n\r\n\t.create-card .code\r\n\t{\r\n\t\tbackground: #1d1f21;\r\n\t}\r\n\r\n\t.create-card .code textarea\r\n\t{\r\n\t\tfont-family: monospace;\r\n\t\tborder-radius: 3px;\r\n\t\tbackground: transparent;\r\n\t\twidth: 100%;\r\n\t\tmargin: 0%;\r\n\t\tborder: 0px;\r\n\t\tpadding:  2% 5%;\r\n\t\tcolor:#c5c8c6;\r\n\t\tmin-height: 250px;\r\n\t}\r\n\r\n\t.create-card .fields textarea,\t.create-card .fields input,\t.create-card .fields select\r\n\t{\r\n\t\tfont-family: \"Roboto\",\"Helvetica\",\"Arial\",sans-serif;\r\n\t\tfont-size: 12px;\r\n\t\tdisplay: block;\r\n\t\twidth: 100%;\r\n\t\tpadding:  2% 5%;\r\n\t}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 269 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(112);
+
+	module.exports = {
+			data: function () { return {
+				id: null,
+				snippet: "",
+				title: "",
+				description: "",
+				tags: "",
+				language: ""
+			}},
+		  props: {
+		      languages : {type: Array, default: () => [
+		        'xml',
+		        'cs',
+		        'bash',
+		        'cmake',
+		        'coffeescript',
+		        'cpp',
+		        'css',
+		        'go',
+		        'gradle',
+		        'java',
+		        'json',
+		        'javascript',
+		        'objectivec',
+		        'powershell',
+		        'sql',
+		        'swift',
+		        'typescript'
+		      ]}
+		    },
+				created: function(){
+					if(this.$route.params.id){
+						this.id = this.$route.params.id;
+						this.initialize(this.id);
+					}
+				},
+				methods: {
+					initialize: function(id){
+						var vm = this;
+						$.get('/api/cards/'+id, function(data){
+							vm.snippet = data.snippet;
+							vm.title = data.title;
+							vm.description = data.description;
+							vm.tags = data.tags.join(" ");
+							vm.language = data.language;
+						});
+					},
+					delete: function() {
+						var vm = this;
+						$.ajax({
+						    url: '/api/cards/'+this.id,
+						    type: 'DELETE',
+						    success: function(result) {
+						        vm.$dispatch('route-go', '/')
+						    }
+						});
+					},
+					done: function() {
+						var vm = this;
+						var body = {
+							snippet: this.snippet,
+							title: this.title,
+							description: this.description,
+							tags: this.tags.split(" "),
+							language: this.language
+						};
+						console.log(body);
+
+						if(this.id != null){
+							$.post('/api/cards/'+this.id, body)
+							  .done(function( data ) {
+									vm.$dispatch('route-go', '/')
+							  });
+						}
+						else {
+							$.post('/api/cards', body)
+							  .done(function( data ) {
+									vm.$dispatch('route-go', '/')
+							  });
+						}
+					}
+				}
+	};
+
+/***/ },
+/* 270 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\r\n    <header class=\"mdl-layout__header\">\r\n        <div class=\"mdl-layout__header-row\">\r\n        <!-- Title -->\r\n        <span class=\"mdl-layout-title\">Code-Cards</span>\r\n        <!-- Add spacer, to align navigation to the right -->\r\n        <div class=\"mdl-layout-spacer\"></div>\r\n        \r\n        <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--expandable\r\n                    mdl-textfield--floating-label mdl-textfield--align-right\">\r\n            <label class=\"mdl-button mdl-js-button mdl-button--icon\"\r\n                for=\"fixed-header-drawer-exp\">\r\n            <i class=\"material-icons\">search</i>\r\n            </label>\r\n            <div class=\"mdl-textfield__expandable-holder\">\r\n            <input class=\"mdl-textfield__input\" type=\"text\" name=\"sample\"\r\n                    id=\"fixed-header-drawer-exp\" />\r\n            </div>\r\n        </div>\r\n        </div>\r\n        <button class=\"mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent\" id=\"add-button\">\r\n            <i class=\"material-icons\">add</i>\r\n        </button>\r\n    </header>\r\n    <main class=\"mdl-layout__content\">\r\n        <div class=\"page-content\">\r\n            <router-view></router-view>\r\n        </div>\r\n    </main>\r\n    </div>";
+	module.exports = "<div>\r\n\t\t<div class=\"create-card mdl-card mdl-shadow--4dp\">\r\n\t\t\t<div class=\"code\">\r\n\t\t\t\t\t<textarea v-model=\"snippet\" placeholder=\"Code\"></textarea>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"fields\">\r\n\t\t\t\t<input  v-model=\"title\" class=\"title\" type=\"text\" placeholder=\"Title\">\r\n\t\t\t\t<textarea  v-model=\"description\" class=\"description\" placeholder=\"Description\"></textarea>\r\n\t\t\t\t<input  v-model=\"tags\" class=\"tags\" type=\"text\" placeholder=\"Tags (separated by spaces)\"></input>\r\n\t\t\t\t<select  v-model=\"language\" class=\"languages\" name=\"language\" options=\"languages\"></select>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"create-action-bar\">\r\n\t\t\t<a class=\"mdl-button mdl-js-button mdl-button--fab\" v-link=\"{ path: '/' }\">\r\n\t\t\t  <i class=\"material-icons\">close</i>\r\n\t\t\t</a>\r\n\t\t\t<a v-on=\"click: done\" class=\"right mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored\">\r\n\t\t\t  <i class=\"material-icons\">check</i>\r\n\t\t\t</a>\r\n\t\t\t<a v-if='id' v-on=\"click: delete\" class=\"right mdl-button mdl-js-button mdl-button--fab\" style=\"margin-right: 30px;\">\r\n\t\t\t  <i class=\"material-icons\">delete</i>\r\n\t\t\t</a>\r\n\t\t</div>\r\n\t</div>";
 
 /***/ }
 /******/ ]);

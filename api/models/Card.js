@@ -45,12 +45,10 @@ Card.prototype.all = function(offset,limit,tags) {
 Card.prototype.create = function(entity) {
   var col = this.collection;
 
-  var insert = new Promise(function(resolve,reject) {
-    col.insert(entity,(e, v) => { if(e) return reject(e); resolve(v); });
-  });
-
   return this.validate(entity).then(function(r){
-    return insert;
+    return new Promise(function(resolve,reject) {
+      col.insert(entity,(e, v) => { if(e) return reject(e); resolve(v); });
+    });
   });
 }
 
@@ -70,12 +68,10 @@ Card.prototype.read = function(id) {
 
 Card.prototype.update = function(id,entity) {
   var col = this.collection;
-  var insert = new Promise(function(resolve,reject) {
-    col.update({ _id: id }, entity, (e, v) => { if(e) return reject(e); resolve(v); });
-  });
-
   return this.validate(entity).then(function(r){
-    return insert;
+    return new Promise(function(resolve,reject) {
+      col.update({ _id: id }, entity, (e, v) => { if(e) return reject(e); resolve(v); });
+    });
   });
 }
 
