@@ -42,6 +42,17 @@
 		width: 100%;
 		padding:  2% 5%;
 	}
+
+	.create-action-bar .mdl-button--colored {
+		color: #fff;
+		  background-color: #b294bb;
+	}
+
+	.create-action-bar .mdl-button--colored:hover {
+		color: #ddd;
+			background-color: #1d1f21;
+	}
+
 </style>
 
 <template>
