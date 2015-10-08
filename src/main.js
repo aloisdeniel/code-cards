@@ -4,22 +4,25 @@ require('./css/main.css')
 
 // Application
 
-var Vue = require('vue');
 var minigrid = require('minigrid');
+var Vue = require('vue');
 var VueRouter = require('vue-router');
-var HomePage = require('./pages/Home.vue')
-var CreatePage = require('./pages/Create.vue')
+var HomePage = require('./pages/home.vue');
+var CreatePage = require('./pages/create.vue');
+var App = require('./app.vue');
 
-var App = Vue.extend({});
+Vue.use(VueRouter);
 
 var router = new VueRouter();
 
 router.map({
   '/home' : { component: HomePage },
-  '/create' : { component: CreatePage },
+  '/create' : { component: CreatePage }
 })
 
-router.start(App,'#app')
+
+var app = Vue.extend(App);
+router.start(app,'#app')
 
 router.go('/home');
 

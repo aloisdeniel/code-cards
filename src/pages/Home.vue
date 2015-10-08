@@ -1,7 +1,7 @@
 
 <template>
   <div class="subheader">
-    <a class="button" v-link="{ path: \'/create\' }"><i class="ion-plus-round"></i></a>
+    <a class="button" v-link="{ path: '/create' }"><i class="ion-plus-round"></i></a>
     <h1>{{title}}</h1>
   </div>
   <div class="home-content">
@@ -28,8 +28,8 @@ var hljs = require('highlight.js');
 module.exports = {
   props: {
     title: {type: String, default: 'Home' },
-    cards: {type: Array, default: [] },
-    tags: {type: Array, default: [] },
+    cards: {type: Array, default: () => [] },
+    tags: {type: Array, default: () => [] },
   },
   attached: function(){
     this.update();

@@ -1,7 +1,7 @@
 <template>
 	<div class="subheader">
 		<a class="button"><i class="ion-checkmark-round"></i></a>
-		<a class="button negative" v-link="{ path: \'/home\' }"><i class="ion-close-round"></i></a>
+		<a class="button negative" v-link="{ path: '/home' }"><i class="ion-close-round"></i></a>
 		<h1>{{title}}</h1>
 	</div>
 	<div class="card full">
@@ -10,7 +10,7 @@
 		<p><input type="text" placeholder="Tags (separated by spaces)"></input></p>
 		<p>
       <select name="language">
-        <option v-repeat="languages" value="{$value}">{$value}</option>
+        <option v-repeat="languages" value="{{$value}}">{{$value}}</option>
       </select>
     </p>
 		<div class="snippet"><textarea placeholder="Code"></textarea></div>
@@ -18,10 +18,11 @@
 </template>
 
 <script>
+
 module.exports = {
   props: {
       title: {type: String, default: 'Create a new card' },
-      languages : {type: Array, default: [
+      languages : {type: Array, default: () => [
         'xml',
         'cs',
         'bash',
