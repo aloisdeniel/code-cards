@@ -2,6 +2,7 @@
 
 .mdl-layout__header {
 background: #1d1f21;
+z-index: 900;
 }
 
 .mdl-layout__header-row {
@@ -27,7 +28,7 @@ background: #1d1f21;
               <i class="material-icons">search</i>
             </label>
             <div class="mdl-textfield__expandable-holder">
-              <input v-model="search" v-on="keyup:filter | key 'enter'" class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp" />
+              <input v-model="search | tag-list" v-on="keyup:filter | key 'enter'" class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp" />
             </div>
         </div>
         </div>
@@ -44,11 +45,15 @@ background: #1d1f21;
 
 module.exports = {
   data: {
-    search : ""
+    search : []
   },
   props: ["search"],
   methods: {
     filter: function(){
+      console.log(this.$route)
+      if(this.$route.name === 'home'){
+        this.$broadcast('search', this.search );
+      }
       this.$emit('route-go', { name: 'home', query: { tags: this.search } });
     }
   }

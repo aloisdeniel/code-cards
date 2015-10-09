@@ -6,9 +6,9 @@
 
 .action-bar
 {
-    position: absolute;
+    position: fixed;
     right: 40px;
-    bottom: 40px;
+    top: 80px;
     z-index: 999;
 }
 
@@ -58,6 +58,15 @@
   margin-left: 4px;
   border-radius: 2px;
 }
+.action-bar .mdl-button--colored {
+  color: #fff;
+    background-color: #b294bb;
+}
+
+.action-bar .mdl-button--colored:hover {
+  color: #ddd;
+    background-color: #1d1f21;
+}
 
 .tag-0 {background: #b294bb;  color: #fff; }
 .tag-1 {background: #cc6666;  color: #fff; }
@@ -73,12 +82,16 @@
 </style>
 
 <template>
-    <div class="home-content">
-      <div class="action-bar">
-      <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" v-link="{ path: '/create'}">
-          <i class="material-icons">add</i>
-      </a>
 
+    <div class="home-content">
+
+        <div class="action-bar mdl-layout--large-screen-only">
+          <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" v-link="{ path: '/create'}">
+              <i class="material-icons">add</i>
+          </a>
+        </div>
+      <div v-if="cards.length == 0">
+        <p>Not cards</p>
       </div>
 
       <div class="mdl-card mdl-shadow--2dp" v-repeat="card in cards" v-transition="fade">
@@ -107,17 +120,29 @@ var $ = require('jquery');
 var minigrid = require('minigrid');
 var hljs = require('highlight.js');
 
-var hashCode = function(s) {
-
-};
-
 module.exports = {
   props: {
     cards: {type: Array, default: () => [] },
     tags: {type: Array, default: () => [] },
   },
-  attached: function(){
-    this.update();
+  route: {
+    activate: function (transition) {
+
+      if(this.$route.query.tags){
+        this.tags = this.$route.query.tags;
+        console.log('Search for tags : ' + this.tags);
+      }
+
+      this.update();
+
+      this.$on('search', function (tags) {
+        this.tags = tags;
+        console.log('Update search with tags : ' + this.tags);
+        this.update();
+      });
+
+      transition.next()
+    }
   },
   watch: {
     cards: function(val,oldVal) {
@@ -133,15 +158,15 @@ module.exports = {
      */
     update: function() {
       var vm = this;
-      var query = '';
 
-      if(this.$route.query.tags){
-        query = '?tags=' + this.$route.query.tags;
-        console.log('Search for tags : ' + query);
+      var query = '';
+      if(this.tags){
+        query += '?tags=' + this.tags.join(',');
       }
 
       $.get('/api/cards'+query, function(data){
         vm.cards = data.cards;
+
       });
     },
 

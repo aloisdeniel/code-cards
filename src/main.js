@@ -16,29 +16,24 @@ function debounce(fn, delay) {
   };
 }
 
+// Dependencies
 var $ = require('jquery');
 var minigrid = require('minigrid');
 var Vue = require('vue');
 var VueRouter = require('vue-router');
-var HomePage = require('./pages/home.vue');
-var EditPage = require('./pages/edit.vue');
+
+// Application
 var App = require('./app.vue');
 
-Vue.transition('slidedown', {});
+// Pages
+var HomePage = require('./pages/home.vue');
+var EditPage = require('./pages/edit.vue');
 
-Vue.filter('unique-index', function (value, max) {
+// Filters
+Vue.filter('unique-index', require('./filters/unique-index.js'));
+Vue.filter('tag-list', require('./filters/tag-list.js'));
 
-  var hash = 0, i, chr, len;
-  if (value.length == 0) return hash;
-  for (i = 0, len = value.length; i < len; i++) {
-    chr   = value.charCodeAt(i);
-    hash  = ((hash << 5) - hash) + chr;
-    hash |= 0; // Convert to 32bit integer
-  }
-
-  return hash % max;
-})
-
+// Routing
 Vue.use(VueRouter);
 
 var router = new VueRouter();
