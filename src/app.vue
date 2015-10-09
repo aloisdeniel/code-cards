@@ -24,10 +24,10 @@ background: #1d1f21;
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
-            <i class="material-icons">search</i>
+              <i class="material-icons">search</i>
             </label>
             <div class="mdl-textfield__expandable-holder">
-              <input v-model="search" debounce="500" class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp" />
+              <input v-model="search" v-on="keyup:filter | key 'enter'" class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp" />
             </div>
         </div>
         </div>
@@ -45,6 +45,12 @@ background: #1d1f21;
 module.exports = {
   data: {
     search : ""
+  },
+  props: ["search"],
+  methods: {
+    filter: function(){
+      this.$emit('route-go', { name: 'home', query: { tags: this.search } });
+    }
   }
 }
 </script>

@@ -99,6 +99,7 @@
 
 	router.start(app,'#app')
 	router.app.$on('route-go', function (path) {
+	  console.log('Navigating ' + path);
 	  router.go(path);
 	});
 
@@ -13675,7 +13676,7 @@
 
 
 	// module
-	exports.push([module.id, ".home-content\r\n{\r\n  margin: auto;\r\n}\r\n\r\n.action-bar\r\n{\r\n    position: absolute;\r\n    right: 40px;\r\n    bottom: 40px;\r\n    z-index: 999;\r\n}\r\n\r\n.mdl-card {\r\n  width: 512px;\r\n  min-height: 0px;\r\n}\r\n\r\n.mdl-card__title {\r\n  background-color: #1d1f21;\r\n}\r\n\r\n.mdl-card__supporting-text p {\r\n  padding: 0px;\r\n  margin: 0px;\r\n  background: transparent;\r\n  font-size: 12px;\r\n  color: #aaa;\r\n}\r\n\r\n.mdl-card__supporting-text h4 {\r\n  padding: 0px;\r\n  margin: 0px;\r\n  font-size: 18px;\r\n  color: #1d1f21;\r\n}\r\n\r\n .mdl-card__menu {\r\n  color: #fff;\r\n}\r\n\r\n.mdl-card__actions a {\r\n  float: right;\r\n}\r\n\r\n.tag\r\n{\r\n  background: #b294bb;\r\n  color: #fff;\r\n  font-weight: bold;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  display: block;\r\n  float: left;\r\n  font-size: 12px;\r\n  padding: 2px 5px;\r\n  margin-top:  7px;\r\n  margin-left: 4px;\r\n  border-radius: 2px;\r\n}\r\n\r\n.tag-0 {background: #b294bb;  color: #fff; }\r\n.tag-1 {background: #cc6666;  color: #fff; }\r\n.tag-2 {background: #de935f;  color: #fff; }\r\n.tag-3 {background: #f0c674;  color: #111; }\r\n.tag-4 {background: #b5bd68;  color: #111; }\r\n.tag-5 {background: #8abeb7;  color: #111; }\r\n.tag-6 {background: #81a2be;  color: #fff; }\r\n.tag-7 {background: #b294bb;  color: #fff; }\r\n.tag-8 {background: #1d1f21;  color: #fff; }\r\n.tag-8 {background: #ccc;  color: #111; }", ""]);
+	exports.push([module.id, ".home-content\r\n{\r\n  margin: auto;\r\n}\r\n\r\n.action-bar\r\n{\r\n    position: absolute;\r\n    right: 40px;\r\n    bottom: 40px;\r\n    z-index: 999;\r\n}\r\n\r\n.mdl-card {\r\n  width: 512px;\r\n  min-height: 0px;\r\n}\r\n\r\n.mdl-card__title {\r\n  background-color: #1d1f21;\r\n}\r\n\r\n.mdl-card__supporting-text p {\r\n  padding: 0px;\r\n  margin: 0px;\r\n  background: transparent;\r\n  font-size: 12px;\r\n  color: #aaa;\r\n}\r\n\r\n.mdl-card__supporting-text h4 {\r\n  padding: 0px;\r\n  margin: 0px;\r\n  font-size: 18px;\r\n  color: #1d1f21;\r\n}\r\n\r\n .mdl-card__menu {\r\n  color: #fff;\r\n}\r\n\r\n.mdl-card__actions a {\r\n  float: right;\r\n}\r\n\r\n.tag\r\n{\r\n  background: #b294bb;\r\n  color: #fff;\r\n  font-weight: bold;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  display: block;\r\n  float: left;\r\n  font-size: 12px;\r\n  padding: 2px 5px;\r\n  margin-top:  7px;\r\n  margin-left: 4px;\r\n  border-radius: 2px;\r\n}\r\n\r\n.tag-0 {background: #b294bb;  color: #fff; }\r\n.tag-1 {background: #cc6666;  color: #fff; }\r\n.tag-2 {background: #de935f;  color: #fff; }\r\n.tag-3 {background: #f0c674;  color: #111; }\r\n.tag-4 {background: #b5bd68;  color: #111; }\r\n.tag-5 {background: #8abeb7;  color: #111; }\r\n.tag-6 {background: #81a2be;  color: #fff; }\r\n.tag-7 {background: #b294bb;  color: #fff; }\r\n.tag-8 {background: #1d1f21;  color: #fff; }\r\n.tag-9 {background: #ccc;  color: #111; }", ""]);
 
 	// exports
 
@@ -13714,7 +13715,14 @@
 	     */
 	    update: function() {
 	      var vm = this;
-	      $.get('/api/cards', function(data){
+	      var query = '';
+
+	      if(this.$route.query.tags){
+	        query = '?tags=' + this.$route.query.tags;
+	        console.log('Search for tags : ' + query);
+	      }
+
+	      $.get('/api/cards'+query, function(data){
 	        vm.cards = data.cards;
 	      });
 	    },
@@ -36958,7 +36966,7 @@
 /* 250 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"home-content\">\r\n      <div class=\"action-bar\">\r\n      <a class=\"mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent\" v-link=\"{ path: '/create'}\">\r\n          <i class=\"material-icons\">add</i>\r\n      </a>\r\n\r\n      </div>\r\n\r\n      <div class=\"mdl-card mdl-shadow--2dp\" v-repeat=\"card in cards\" v-transition=\"fade\">\r\n        <pre class=\"mdl-card__title\" v-if=\"card.snippet\">\r\n            <code class=\"{{card.language}}\" v-transition=\"highlight\">{{card.snippet}}</code>\r\n        </pre>\r\n        <div class=\"mdl-card__supporting-text\">\r\n          <h4 v-if=\"card.title\">{{card.title}}</h4>\r\n          <p v-if=\"card.description\">{{card.description}}</p>\r\n        </div>\r\n        <div class=\"mdl-card__actions mdl-card--border\">\r\n\r\n          <span v-repeat=\"card.tags\" class=\"tag tag-{{$value | unique-index 8}}\">{{$value}}</span>\r\n\r\n          <a v-on='click: edit(card)' class=\"mdl-button mdl-js-button mdl-button--icon\">\r\n            <i class=\"material-icons\">more_vert</i>\r\n          </a>\r\n\r\n        </div>\r\n      </div>\r\n   </div>";
+	module.exports = "<div class=\"home-content\">\r\n      <div class=\"action-bar\">\r\n      <a class=\"mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent\" v-link=\"{ path: '/create'}\">\r\n          <i class=\"material-icons\">add</i>\r\n      </a>\r\n\r\n      </div>\r\n\r\n      <div class=\"mdl-card mdl-shadow--2dp\" v-repeat=\"card in cards\" v-transition=\"fade\">\r\n        <pre class=\"mdl-card__title\" v-if=\"card.snippet\">\r\n            <code class=\"{{card.language}}\" v-transition=\"highlight\">{{card.snippet}}</code>\r\n        </pre>\r\n        <div class=\"mdl-card__supporting-text\">\r\n          <h4 v-if=\"card.title\">{{card.title}}</h4>\r\n          <p v-if=\"card.description\">{{card.description}}</p>\r\n        </div>\r\n        <div class=\"mdl-card__actions mdl-card--border\">\r\n\r\n          <span v-repeat=\"card.tags\" class=\"tag tag-{{$value | unique-index 10}}\">{{$value}}</span>\r\n\r\n          <a v-on='click: edit(card)' class=\"mdl-button mdl-js-button mdl-button--icon\">\r\n            <i class=\"material-icons\">more_vert</i>\r\n          </a>\r\n        </div>\r\n      </div>\r\n   </div>";
 
 /***/ },
 /* 251 */,
@@ -37019,6 +37027,12 @@
 	module.exports = {
 	  data: {
 	    search : ""
+	  },
+	  props: ["search"],
+	  methods: {
+	    filter: function(){
+	      this.$emit('route-go', { name: 'home', query: { tags: this.search } });
+	    }
 	  }
 	}
 
@@ -37026,7 +37040,7 @@
 /* 258 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\r\n    <header class=\"mdl-layout__header\">\r\n        <div class=\"mdl-layout__header-row\">\r\n          <span class=\"mdl-layout-title\">> code.cards_</span>\r\n          <div class=\"mdl-layout-spacer\"></div>\r\n          <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right\">\r\n            <label class=\"mdl-button mdl-js-button mdl-button--icon\" for=\"fixed-header-drawer-exp\">\r\n            <i class=\"material-icons\">search</i>\r\n            </label>\r\n            <div class=\"mdl-textfield__expandable-holder\">\r\n              <input v-model=\"search\" debounce=\"500\" class=\"mdl-textfield__input\" type=\"text\" name=\"sample\" id=\"fixed-header-drawer-exp\" />\r\n            </div>\r\n        </div>\r\n        </div>\r\n    </header>\r\n    <main class=\"mdl-layout__content\">\r\n        <div class=\"page-content\">\r\n            <router-view></router-view>\r\n        </div>\r\n    </main>\r\n    </div>";
+	module.exports = "<div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\r\n    <header class=\"mdl-layout__header\">\r\n        <div class=\"mdl-layout__header-row\">\r\n          <span class=\"mdl-layout-title\">> code.cards_</span>\r\n          <div class=\"mdl-layout-spacer\"></div>\r\n          <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right\">\r\n            <label class=\"mdl-button mdl-js-button mdl-button--icon\" for=\"fixed-header-drawer-exp\">\r\n              <i class=\"material-icons\">search</i>\r\n            </label>\r\n            <div class=\"mdl-textfield__expandable-holder\">\r\n              <input v-model=\"search\" v-on=\"keyup:filter | key 'enter'\" class=\"mdl-textfield__input\" type=\"text\" name=\"sample\" id=\"fixed-header-drawer-exp\" />\r\n            </div>\r\n        </div>\r\n        </div>\r\n    </header>\r\n    <main class=\"mdl-layout__content\">\r\n        <div class=\"page-content\">\r\n            <router-view></router-view>\r\n        </div>\r\n    </main>\r\n    </div>";
 
 /***/ },
 /* 259 */,

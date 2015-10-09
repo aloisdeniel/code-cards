@@ -68,7 +68,7 @@
 .tag-6 {background: #81a2be;  color: #fff; }
 .tag-7 {background: #b294bb;  color: #fff; }
 .tag-8 {background: #1d1f21;  color: #fff; }
-.tag-8 {background: #ccc;  color: #111; }
+.tag-9 {background: #ccc;  color: #111; }
 
 </style>
 
@@ -91,12 +91,11 @@
         </div>
         <div class="mdl-card__actions mdl-card--border">
 
-          <span v-repeat="card.tags" class="tag tag-{{$value | unique-index 8}}">{{$value}}</span>
+          <span v-repeat="card.tags" class="tag tag-{{$value | unique-index 10}}">{{$value}}</span>
 
           <a v-on='click: edit(card)' class="mdl-button mdl-js-button mdl-button--icon">
             <i class="material-icons">more_vert</i>
           </a>
-
         </div>
       </div>
    </div>
@@ -134,7 +133,14 @@ module.exports = {
      */
     update: function() {
       var vm = this;
-      $.get('/api/cards', function(data){
+      var query = '';
+
+      if(this.$route.query.tags){
+        query = '?tags=' + this.$route.query.tags;
+        console.log('Search for tags : ' + query);
+      }
+
+      $.get('/api/cards'+query, function(data){
         vm.cards = data.cards;
       });
     },

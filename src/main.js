@@ -53,6 +53,7 @@ var app = Vue.extend(App);
 
 router.start(app,'#app')
 router.app.$on('route-go', function (path) {
+  console.log('Navigating ' + path);
   router.go(path);
 });
 
