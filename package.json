@@ -1,6 +1,6 @@
 {
   "name": "code-cards",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "An application for managing you snippets of code.",
   "main": "main.js",
   "scripts": {
