@@ -1,4 +1,9 @@
 <style>
+.home-content
+{
+  margin: auto;
+}
+
 .action-bar
 {
     position: absolute;
@@ -21,12 +26,14 @@
   margin: 0px;
   background: transparent;
   font-size: 12px;
+  color: #aaa;
 }
 
 .mdl-card__supporting-text h4 {
   padding: 0px;
   margin: 0px;
-  font-size: 17px;
+  font-size: 18px;
+  color: #1d1f21;
 }
 
  .mdl-card__menu {

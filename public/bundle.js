@@ -51,6 +51,18 @@
 
 	// Application
 
+	function debounce(fn, delay) {
+	  var timer = null;
+	  return function () {
+	    var context = this, args = arguments;
+	    clearTimeout(timer);
+	    timer = setTimeout(function () {
+	      fn.apply(context, args);
+	    }, delay);
+	  };
+	}
+
+	var $ = __webpack_require__(112);
 	var minigrid = __webpack_require__(8);
 	var Vue = __webpack_require__(9);
 	var VueRouter = __webpack_require__(76);
@@ -88,11 +100,11 @@
 	router.start(app,'#app')
 	router.app.$on('route-go', function (path) {
 	  router.go(path);
-	})
-
-	window.addEventListener('resize', function(){
-	  minigrid('.home-content', '.mdl-card', 15);
 	});
+
+	$(window).resize(debounce(function(){
+	  minigrid('.home-content', '.mdl-card', 15);
+	}, 250));
 
 
 /***/ },
@@ -13663,7 +13675,7 @@
 
 
 	// module
-	exports.push([module.id, ".action-bar\r\n{\r\n    position: absolute;\r\n    right: 40px;\r\n    bottom: 40px;\r\n    z-index: 999;\r\n}\r\n\r\n.mdl-card {\r\n  width: 512px;\r\n  min-height: 0px;\r\n}\r\n\r\n.mdl-card__title {\r\n  background-color: #1d1f21;\r\n}\r\n\r\n.mdl-card__supporting-text p {\r\n  padding: 0px;\r\n  margin: 0px;\r\n  background: transparent;\r\n  font-size: 12px;\r\n}\r\n\r\n.mdl-card__supporting-text h4 {\r\n  padding: 0px;\r\n  margin: 0px;\r\n  font-size: 17px;\r\n}\r\n\r\n .mdl-card__menu {\r\n  color: #fff;\r\n}\r\n\r\n.mdl-card__actions a {\r\n  float: right;\r\n}\r\n\r\n.tag\r\n{\r\n  background: #b294bb;\r\n  color: #fff;\r\n  font-weight: bold;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  display: block;\r\n  float: left;\r\n  font-size: 12px;\r\n  padding: 2px 5px;\r\n  margin-top:  7px;\r\n  margin-left: 4px;\r\n  border-radius: 2px;\r\n}\r\n\r\n.tag-0 {background: #b294bb;  color: #fff; }\r\n.tag-1 {background: #cc6666;  color: #fff; }\r\n.tag-2 {background: #de935f;  color: #fff; }\r\n.tag-3 {background: #f0c674;  color: #111; }\r\n.tag-4 {background: #b5bd68;  color: #111; }\r\n.tag-5 {background: #8abeb7;  color: #111; }\r\n.tag-6 {background: #81a2be;  color: #fff; }\r\n.tag-7 {background: #b294bb;  color: #fff; }\r\n.tag-8 {background: #1d1f21;  color: #fff; }\r\n.tag-8 {background: #ccc;  color: #111; }", ""]);
+	exports.push([module.id, ".home-content\r\n{\r\n  margin: auto;\r\n}\r\n\r\n.action-bar\r\n{\r\n    position: absolute;\r\n    right: 40px;\r\n    bottom: 40px;\r\n    z-index: 999;\r\n}\r\n\r\n.mdl-card {\r\n  width: 512px;\r\n  min-height: 0px;\r\n}\r\n\r\n.mdl-card__title {\r\n  background-color: #1d1f21;\r\n}\r\n\r\n.mdl-card__supporting-text p {\r\n  padding: 0px;\r\n  margin: 0px;\r\n  background: transparent;\r\n  font-size: 12px;\r\n  color: #aaa;\r\n}\r\n\r\n.mdl-card__supporting-text h4 {\r\n  padding: 0px;\r\n  margin: 0px;\r\n  font-size: 18px;\r\n  color: #1d1f21;\r\n}\r\n\r\n .mdl-card__menu {\r\n  color: #fff;\r\n}\r\n\r\n.mdl-card__actions a {\r\n  float: right;\r\n}\r\n\r\n.tag\r\n{\r\n  background: #b294bb;\r\n  color: #fff;\r\n  font-weight: bold;\r\n  font-family: 'Source Sans Pro', sans-serif;\r\n  display: block;\r\n  float: left;\r\n  font-size: 12px;\r\n  padding: 2px 5px;\r\n  margin-top:  7px;\r\n  margin-left: 4px;\r\n  border-radius: 2px;\r\n}\r\n\r\n.tag-0 {background: #b294bb;  color: #fff; }\r\n.tag-1 {background: #cc6666;  color: #fff; }\r\n.tag-2 {background: #de935f;  color: #fff; }\r\n.tag-3 {background: #f0c674;  color: #111; }\r\n.tag-4 {background: #b5bd68;  color: #111; }\r\n.tag-5 {background: #8abeb7;  color: #111; }\r\n.tag-6 {background: #81a2be;  color: #fff; }\r\n.tag-7 {background: #b294bb;  color: #fff; }\r\n.tag-8 {background: #1d1f21;  color: #fff; }\r\n.tag-8 {background: #ccc;  color: #111; }", ""]);
 
 	// exports
 

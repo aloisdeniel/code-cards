@@ -5,6 +5,18 @@ require('./css/main.css')
 
 // Application
 
+function debounce(fn, delay) {
+  var timer = null;
+  return function () {
+    var context = this, args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      fn.apply(context, args);
+    }, delay);
+  };
+}
+
+var $ = require('jquery');
 var minigrid = require('minigrid');
 var Vue = require('vue');
 var VueRouter = require('vue-router');
@@ -42,8 +54,8 @@ var app = Vue.extend(App);
 router.start(app,'#app')
 router.app.$on('route-go', function (path) {
   router.go(path);
-})
-
-window.addEventListener('resize', function(){
-  minigrid('.home-content', '.mdl-card', 15);
 });
+
+$(window).resize(debounce(function(){
+  minigrid('.home-content', '.mdl-card', 15);
+}, 250));
