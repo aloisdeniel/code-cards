@@ -37,7 +37,31 @@
   float: right;
 }
 
+.tag
+{
+  background: #b294bb;
+  color: #fff;
+  font-weight: bold;
+  font-family: 'Source Sans Pro', sans-serif;
+  display: block;
+  float: left;
+  font-size: 12px;
+  padding: 2px 5px;
+  margin-top:  7px;
+  margin-left: 4px;
+  border-radius: 2px;
+}
 
+.tag-0 {background: #b294bb;  color: #fff; }
+.tag-1 {background: #cc6666;  color: #fff; }
+.tag-2 {background: #de935f;  color: #fff; }
+.tag-3 {background: #f0c674;  color: #111; }
+.tag-4 {background: #b5bd68;  color: #111; }
+.tag-5 {background: #8abeb7;  color: #111; }
+.tag-6 {background: #81a2be;  color: #fff; }
+.tag-7 {background: #b294bb;  color: #fff; }
+.tag-8 {background: #1d1f21;  color: #fff; }
+.tag-8 {background: #ccc;  color: #111; }
 
 </style>
 
@@ -50,7 +74,7 @@
 
       </div>
 
-      <div class="mdl-card mdl-shadow--2dp" v-repeat="card in cards">
+      <div class="mdl-card mdl-shadow--2dp" v-repeat="card in cards" v-transition="fade">
         <pre class="mdl-card__title" v-if="card.snippet">
             <code class="{{card.language}}" v-transition="highlight">{{card.snippet}}</code>
         </pre>
@@ -60,7 +84,7 @@
         </div>
         <div class="mdl-card__actions mdl-card--border">
 
-          <span v-repeat="card.tags" class="tag">{{$value}}</span>
+          <span v-repeat="card.tags" class="tag tag-{{$value | unique-index 8}}">{{$value}}</span>
 
           <a v-on='click: edit(card)' class="mdl-button mdl-js-button mdl-button--icon">
             <i class="material-icons">more_vert</i>
@@ -76,6 +100,10 @@
 var $ = require('jquery');
 var minigrid = require('minigrid');
 var hljs = require('highlight.js');
+
+var hashCode = function(s) {
+
+};
 
 module.exports = {
   props: {

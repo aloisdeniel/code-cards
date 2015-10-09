@@ -1,3 +1,39 @@
+/* Transitions */
+
+.slide-enter { animation: slide-in .4s; }
+.slide-leave { animation: slide-out .4s ; }
+@keyframes slide-in {
+  0% { transform: translate(0,-100%); }
+  100% { transform: translate(0,0); }
+}
+@keyframes slide-out {
+  0% { transform: translate(0,0); }
+  100% { transform: translate(0,-100%); }
+}
+
+.fade-enter { animation: fade-in .8s; }
+.fade-leave { animation: fade-out .8s ; }
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.expand-enter { animation: expand-in 1.2s; }
+.expand-leave { animation: expand-out 1.2s ; }
+@keyframes expand-in {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+@keyframes expand-out {
+    from { transform: scale(1); }
+    to { transform: scale(0); }
+}
+
+/* Styles */
 
 html, pre, body, code
 {
@@ -198,20 +234,6 @@ h5
   padding: 2px;
   margin: 0px;
   border-radius: 4px;
-}
-
-.tag
-{
-  background: #b294bb;
-  color: #fff;
-  font-weight: bold;
-  font-family: 'Source Sans Pro', sans-serif;
-  display: block;
-  float: left;
-  font-size: 12px;
-  padding: 2px 5px;
-  margin-left: 4px;
-  border-radius: 2px;
 }
 
 .badge

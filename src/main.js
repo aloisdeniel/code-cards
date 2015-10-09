@@ -12,6 +12,21 @@ var HomePage = require('./pages/home.vue');
 var EditPage = require('./pages/edit.vue');
 var App = require('./app.vue');
 
+Vue.transition('slidedown', {});
+
+Vue.filter('unique-index', function (value, max) {
+
+  var hash = 0, i, chr, len;
+  if (value.length == 0) return hash;
+  for (i = 0, len = value.length; i < len; i++) {
+    chr   = value.charCodeAt(i);
+    hash  = ((hash << 5) - hash) + chr;
+    hash |= 0; // Convert to 32bit integer
+  }
+
+  return hash % max;
+})
+
 Vue.use(VueRouter);
 
 var router = new VueRouter();
@@ -22,10 +37,7 @@ router.map({
   '/:id/edit' : {name: 'edit', component: EditPage}
 })
 
-
 var app = Vue.extend(App);
-
-
 
 router.start(app,'#app')
 router.app.$on('route-go', function (path) {

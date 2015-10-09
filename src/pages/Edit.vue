@@ -53,11 +53,12 @@
 			background-color: #1d1f21;
 	}
 
+
 </style>
 
 <template>
 	<div>
-		<div class="create-card mdl-card mdl-shadow--4dp">
+		<div class="create-card mdl-card mdl-shadow--4dp" v-if="visible" v-transition="slide">
 			<div class="code">
 					<textarea v-model="snippet" placeholder="Code"></textarea>
 			</div>
@@ -69,7 +70,7 @@
 			</div>
 		</div>
 
-		<div class="create-action-bar">
+		<div class="create-action-bar" v-if="visible" v-transition="fade">
 			<a class="mdl-button mdl-js-button mdl-button--fab" v-link="{ path: '/' }">
 			  <i class="material-icons">close</i>
 			</a>
@@ -94,7 +95,8 @@ module.exports = {
 			title: "",
 			description: "",
 			tags: "",
-			language: ""
+			language: "",
+			visible: false
 		}},
 	  props: {
 	      languages : {type: Array, default: () => [
@@ -117,6 +119,9 @@ module.exports = {
 	        'typescript'
 	      ]}
 	    },
+			attached: function(){
+				this.visible = true;
+			},
 			created: function(){
 				if(this.$route.params.id){
 					this.id = this.$route.params.id;
